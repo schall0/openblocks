@@ -176,7 +176,7 @@ public class PageDrawerLoadingUtils {
                         pageList.add(position, page);
                     }
 
-                    blocksForPages.put(page, page.loadPageFrom(pageNode, false));
+                    blocksForPages.put(page, page.loadPageFrom(pageNode, true));
                 }
             }
             //add blocks in drawers
