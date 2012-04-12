@@ -42,15 +42,19 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+
 import edu.mit.blocks.codeblocks.BlockConnectorShape;
 import edu.mit.blocks.codeblocks.BlockGenus;
 import edu.mit.blocks.codeblocks.BlockLinkChecker;
 import edu.mit.blocks.codeblocks.CommandRule;
 import edu.mit.blocks.codeblocks.Constants;
 import edu.mit.blocks.codeblocks.SocketRule;
+import edu.mit.blocks.codeblockutil.custom.DefaultBlockLabelBuilder;
+import edu.mit.blocks.codeblockutil.custom.IBlockLabelBuilder;
 import edu.mit.blocks.workspace.SearchBar;
 import edu.mit.blocks.workspace.SearchableContainer;
 import edu.mit.blocks.workspace.Workspace;
+import edu.mit.blocks.workspace.WorkspaceEnvironment;
 
 /**
  * Example entry point to OpenBlock application creation.
@@ -87,7 +91,12 @@ public class WorkspaceController {
      *
      */
     public WorkspaceController() {
-        this.workspace = new Workspace();
+    	this(new DefaultBlockLabelBuilder());
+    }
+    
+    public WorkspaceController(IBlockLabelBuilder blockLabelBuilder) {
+		WorkspaceEnvironment env = new WorkspaceEnvironment(blockLabelBuilder);
+		this.workspace = new Workspace(env);
     }
 
     /**

@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+
 import edu.mit.blocks.codeblocks.Block;
 import edu.mit.blocks.codeblockutil.Explorer;
 import edu.mit.blocks.codeblockutil.ExplorerEvent;
@@ -49,8 +50,8 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
     private static final long serialVersionUID = 328149080422L;
 
 	// the environment wrapps all the components of a workspace (Blocks, RenderableBlocks, BlockStubs, BlockGenus)
-    private final WorkspaceEnvironment env = new WorkspaceEnvironment();
-
+    private final WorkspaceEnvironment env;
+   
     public WorkspaceEnvironment getEnv() {
 		return this.env;
 	}
@@ -123,8 +124,9 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
     public final static Integer DRAGGED_BLOCK_HIGHLIGHT_LAYER = new Integer(4);
     public final static Integer DRAGGED_BLOCK_LAYER = new Integer(5);
 
-    public Workspace() {
+    public Workspace(WorkspaceEnvironment env) {
         super();
+        this.env = env;
         setLayout(null);
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(1000, 600));

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import edu.mit.blocks.codeblocks.Block;
 import edu.mit.blocks.codeblocks.BlockGenus;
+import edu.mit.blocks.codeblockutil.custom.IBlockLabelBuilder;
 import edu.mit.blocks.renderable.RenderableBlock;
 
 /**
@@ -22,6 +24,16 @@ import edu.mit.blocks.renderable.RenderableBlock;
  */
 
 public class WorkspaceEnvironment {
+
+	private final IBlockLabelBuilder blockLabelBuilder;
+	
+	public WorkspaceEnvironment(IBlockLabelBuilder blockLabelBuilder) {
+		this.blockLabelBuilder = blockLabelBuilder;
+	}
+	
+	public IBlockLabelBuilder getBlockLabelBuilder() {
+		return blockLabelBuilder;
+	}
 
 	private final Map<Long, RenderableBlock> allRenderableBlocks = new HashMap<Long, RenderableBlock>();
 

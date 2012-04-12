@@ -3,6 +3,7 @@ package edu.mit.blocks.renderable;
 import java.awt.Color;
 
 import edu.mit.blocks.codeblocks.BlockConnectorShape;
+import edu.mit.blocks.codeblockutil.LabelWidget;
 import edu.mit.blocks.workspace.Workspace;
 
 /**
@@ -10,10 +11,15 @@ import edu.mit.blocks.workspace.Workspace;
  * NameLabel displays the name of a RenderableBlock
  * 
  */
-class NameLabel extends BlockLabel {
+public class NameLabel extends BlockLabel {
 
     private long blockID;
 
+    public NameLabel(Workspace workspace, LabelWidget labelWidget, String initLabelText, BlockLabel.Type labelType, boolean isEditable, long blockID) {
+    	super(workspace, labelWidget, initLabelText, labelType, isEditable, blockID, true, new Color(255, 255, 225));
+    	this.blockID = blockID;
+    }
+    
     public NameLabel(Workspace workspace, String initLabelText, BlockLabel.Type labelType, boolean isEditable, long blockID) {
         super(workspace, initLabelText, labelType, isEditable, blockID, true, new Color(255, 255, 225));
         this.blockID = blockID;

@@ -31,7 +31,7 @@ class SocketLabel extends BlockLabel {
         if (ignoreSocket(socket)) {
             return;
         }
-        //abstarct location so we need to tranform it
+        //abstract location so we need to tranform it
         double x;
         double y;
         if (BlockConnectorShape.isCommandConnector(socket)) {
@@ -48,7 +48,7 @@ class SocketLabel extends BlockLabel {
     }
 
     @Override
-    protected void textChanged(String text) {
+    public void textChanged(String text) {
         // Prevents running this when sockets are null.
         // Sockets can be null during loading.
         if (socket != null) {
