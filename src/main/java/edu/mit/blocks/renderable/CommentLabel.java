@@ -28,7 +28,8 @@ public class CommentLabel extends BlockControlLabel {
     /**
      * setup current visual state of button
      */
-	public void update() {
+    @Override
+    public void update() {
         RenderableBlock rb = workspace.getEnv().getRenderableBlock(getBlockID());
 
         if (rb != null) {
@@ -79,6 +80,7 @@ public class CommentLabel extends BlockControlLabel {
      * Implement MouseListener interface
      * toggle collapse state of block if button pressed
      */
+    @Override
     public void mouseClicked(MouseEvent e) {
         toggle();
         RenderableBlock rb = workspace.getEnv().getRenderableBlock(getBlockID());
@@ -94,7 +96,8 @@ public class CommentLabel extends BlockControlLabel {
      * Implement MouseListener interface
      * highlight button state
      */
-	public void mouseEntered(MouseEvent e) {
+    @Override
+    public void mouseEntered(MouseEvent e) {
         super.mouseEntered(e);
         this.setBorder(BorderFactory.createLineBorder(Color.yellow));
         Comment comment = workspace.getEnv().getRenderableBlock(getBlockID()).getComment();
@@ -106,7 +109,8 @@ public class CommentLabel extends BlockControlLabel {
      * Implement MouseListener interface
      * de-highlight button state
      */
-	public void mouseExited(MouseEvent e) {
+    @Override
+    public void mouseExited(MouseEvent e) {
         super.mouseExited(e);
         this.setBorder(BorderFactory.createLineBorder(Color.gray));
         Comment comment = workspace.getEnv().getRenderableBlock(getBlockID()).getComment();

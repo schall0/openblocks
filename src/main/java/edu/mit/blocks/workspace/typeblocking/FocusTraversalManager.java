@@ -197,7 +197,7 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
     //////////////////
     /**
      * Sets focus to block
-     * @parem block
+     * @param block
      *
      * TODO: finish method documentation
      */
@@ -414,6 +414,9 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * If next control block does not exist, then give
      * focus to current focusblock.  Otherwise, give
      * focus to block canvas.
+     *
+     * Expects no wrapping to TopOfStack block, do not use this method for infix blocks
+     *
      * @requires focusblock.isMinimized() == false
      * @modifies this.focusblock
      * @effects sets this.focusblock to be the first
@@ -422,7 +425,6 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * 			If focus block is an invalid block,
      * 			return focus to the default (block canvas)
      * @returns true if and only if focus was set to new after block
-     * @expects no wrapping to TopOfStack block, do not use this method for infix blocks
      */
     public boolean focusAfterBlock() {
         if (invalidBlock(focusBlock) || !workspace.getEnv().getRenderableBlock(focusBlock).isVisible()) {
@@ -453,6 +455,9 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * If no previous control block exists, then give
      * focus to current focusblock.  Otherwise, give
      * focus to block canvas.
+     *
+     * Expects no wrapping to bottom block, do not use this method for infix blocks
+     *
      * @requires focusblock.isMinimized() == false
      * @modifies this.focusblock
      * @effects sets this.focusblock to be the first
@@ -461,7 +466,6 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * 			If focus block is an invalid block,
      * 			return focus to the default (block canvas)
      * @returns true if and only if focus was set to new before block
-     * @expects no wrapping to bottom block, do not use this method for infix blocks
      */
     public boolean focusBeforeBlock() {
         if (invalidBlock(focusBlock) || !workspace.getEnv().getRenderableBlock(focusBlock).isVisible()) {
@@ -654,7 +658,7 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * of the obserser method.
      *
      * @requires blockID != Block.Null && block !=null
-     * @returns Block instance located at corresponding
+     * @return Block instance located at corresponding
      * 			connection or null if non exists
      */
     private Block getBlock(Long blockID) {

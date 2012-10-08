@@ -76,7 +76,7 @@ public class LabelWidget extends JComponent {
     /**
      * BlockLabel Constructor that takes in BlockID as well.
      * Unfortunately BlockID is needed, so the label can redirect mouse actions.
-     * @param zoom
+     *
      */
     public LabelWidget(String initLabelText, Color fieldColor, Color tooltipBackground) {
     
@@ -96,7 +96,6 @@ public class LabelWidget extends JComponent {
         textField.setSelectedTextColor(Color.WHITE);//white text when highlighted
         textField.setBorder(textFieldBorder);
         textField.setMargin(textFieldBorder.getBorderInsets(textField));
-
     }
 
     public void setBlockLabel(BlockLabel blockLabel) {
