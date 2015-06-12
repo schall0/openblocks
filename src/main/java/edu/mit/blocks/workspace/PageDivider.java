@@ -141,7 +141,7 @@ public class PageDivider extends JComponent implements MouseListener, MouseMotio
     public void mouseDragged(MouseEvent e) {
         leftPage.addPixelWidth(e.getX() - mPressedX);
         dragDone = true;
-        PageChangeEventManager.notifyListeners();
+        workspace.getEnv().notifyListeners();
     }
 
     public void mouseMoved(MouseEvent e) {

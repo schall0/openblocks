@@ -100,7 +100,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
     /** The default abstract width */
     private static final int DEFAULT_ABSTRACT_WIDTH = 700;
     /** The default abstract height */
-    public static final int DEFAULT_ABSTRACT_HEIGHT = 1600;
+    public static final int DEFAULT_ABSTRACT_HEIGHT = 1600 *5;
     /** An empty string */
     private static final String emptyString = "";
     /** this.zoomLevel: zoom level state */
@@ -390,7 +390,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
             }
         }
 
-        PageChangeEventManager.notifyListeners();
+        workspace.getEnv().notifyListeners();
     }
 
     /**
@@ -520,7 +520,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
         reformMinimumPixelHeight();
 
         //repaint all pages
-        PageChangeEventManager.notifyListeners();
+        workspace.getEnv().notifyListeners();
     }
 
     /**
@@ -1086,7 +1086,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
                 }
                 fullview = !fullview;
                 pageJComponent.setFullView(fullview);
-                PageChangeEventManager.notifyListeners();
+                workspace.getEnv().notifyListeners();
             }
         }
 
@@ -1195,6 +1195,7 @@ class PageJComponent extends JLayeredPane implements RBParent {
     /** @overrides RBParent.addToBlockLayer() */
     @Override
     public void addToBlockLayer(Component c) {
+    	this.remove(c);
         this.add(c, BLOCK_LAYER);
 
     }

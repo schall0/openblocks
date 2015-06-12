@@ -114,7 +114,7 @@ public class MiniMap extends JPanel implements WorkspaceWidget, MouseListener, M
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
         this.enlarger = new MiniMapEnlargerTimer();
-        PageChangeEventManager.addPageChangeListener(this);
+        workspace.getEnv().addPageChangeListener(this);
     }
 
     /**

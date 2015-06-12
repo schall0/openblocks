@@ -50,7 +50,7 @@ public class ZoomSlider extends JComponent implements PropertyChangeListener {
         } else {
             slider.setValue(slider.getValue());
         }
-        PageChangeEventManager.notifyListeners();
+        workspace.getEnv().notifyListeners();
     }
 
     public void reset() {

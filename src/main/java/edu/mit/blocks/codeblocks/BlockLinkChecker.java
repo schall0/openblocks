@@ -23,16 +23,8 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  */
 public class BlockLinkChecker {
 
-    private static ArrayList<LinkRule> rules = new ArrayList<LinkRule>();
     // TODO get a better value
     private static double MAX_LINK_DISTANCE = 20.0;
-
-    /**
-     * Clears all the rules within this.
-     */
-    public static void reset() {
-        rules.clear();
-    }
 
     /**
      * Adds a rule to the end of this checker's list of rules.
@@ -41,31 +33,10 @@ public class BlockLinkChecker {
      * @param rule the desired LinkRule to be added
      */
     public static void addRule(Workspace workspace, LinkRule rule) {
-        rules.add(rule);
+    	workspace.getEnv().getRules().add(rule);
         if (rule instanceof WorkspaceListener) {
             workspace.addWorkspaceListener((WorkspaceListener) rule);
         }
-    }
-
-    /**
-     * Insert rule at the specified index in this checker's list of rules.  The original rule at the 
-     * specified index and rules after it are shifted down the list. If the index is greater 
-     * or equal to the length of the rule list, then the rule is added to the end of the list.  
-     * If the rule already exists in the rule list, the rule is moved to the specified index.
-     * @param rule the desired rule to insert
-     * @param index the index to insert the rule in
-     */
-    public static void insertRule(LinkRule rule, int index) {
-        rules.remove(rule);
-        rules.add(index, rule);
-    }
-
-    /**
-     * Removes the specified rule from the rule list
-     * @param rule the desired LinkRule to remove
-     */
-    public static void removeRule(LinkRule rule) {
-        rules.remove(rule);
     }
 
     /**
@@ -78,7 +49,7 @@ public class BlockLinkChecker {
      * @param con2 the BlockConnector at block2 to compare against con1
      */
     public static BlockLink canLink(Workspace workspace, Block block1, Block block2, BlockConnector con1, BlockConnector con2) {
-        if (checkRules(block1, block2, con1, con2)) {
+        if (checkRules(workspace, block1, block2, con1, con2)) {
             return BlockLink.getBlockLink(workspace, block1, block2, con1, con2);
         }
 
@@ -117,7 +88,7 @@ public class BlockLinkChecker {
                 for (BlockConnector currentSocket : getSocketEquivalents(block2)) {
                     currentSocketPoint = getAbsoluteSocketPoint(rblock2, currentSocket);
                     currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(block1, block2, currentPlug, currentSocket)) {
+                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentPlug, currentSocket)) {
                         closestBlock2 = block2;
                         closestSocket1 = currentPlug;
                         closestSocket2 = currentSocket;
@@ -132,7 +103,7 @@ public class BlockLinkChecker {
                 for (BlockConnector currentSocket : getSocketEquivalents(block1)) {
                     currentSocketPoint = getAbsoluteSocketPoint(rblock1, currentSocket);
                     currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(block1, block2, currentSocket, currentPlug)) {
+                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentSocket, currentPlug)) {
                         closestBlock2 = block2;
                         closestSocket1 = currentSocket;
                         closestSocket2 = currentPlug;
@@ -187,7 +158,7 @@ public class BlockLinkChecker {
                 for (BlockConnector currentSocket : getSocketEquivalents(block2)) {
                     currentSocketPoint = getAbsoluteSocketPoint(rblock2, currentSocket);
                     currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(block1, block2, currentPlug, currentSocket)) {
+                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentPlug, currentSocket)) {
                         closestBlock2 = block2;
                         closestSocket1 = currentPlug;
                         closestSocket2 = currentSocket;
@@ -202,7 +173,7 @@ public class BlockLinkChecker {
                 for (BlockConnector currentSocket : getSocketEquivalents(block1)) {
                     currentSocketPoint = getAbsoluteSocketPoint(rblock1, currentSocket);
                     currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(block1, block2, currentSocket, currentPlug)) {
+                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentSocket, currentPlug)) {
                         closestBlock2 = block2;
                         closestSocket1 = currentSocket;
                         closestSocket2 = currentPlug;
@@ -227,8 +198,9 @@ public class BlockLinkChecker {
      * @param socket2 the BlockConnector from block2
      * @return true if the pairing of block1 and block2 at socket1 and socket2 passes any rules, false otherwise
      */
-    private static boolean checkRules(Block block1, Block block2, BlockConnector socket1, BlockConnector socket2) {
-        Iterator<LinkRule> rulesList = Collections.unmodifiableList(rules).iterator();
+    private static boolean checkRules(Workspace workspace, Block block1, Block block2, BlockConnector socket1, BlockConnector socket2) {
+        ArrayList<LinkRule> rules = workspace.getEnv().getRules();
+    	Iterator<LinkRule> rulesList = Collections.unmodifiableList(rules).iterator();
         LinkRule currentRule = null;
         boolean foundRule = false;
         while (rulesList.hasNext()) {

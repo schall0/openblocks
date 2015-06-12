@@ -74,7 +74,7 @@ public class FactoryRenderableBlock extends RenderableBlock {
         if (createdRB != null) {
             //translate this e to a MouseEvent for createdRB
             MouseEvent newE = SwingUtilities.convertMouseEvent(this, e, createdRB);
-            createdRB.mouseDragged(newE);
+            createdRB.mouseDragged(newE, false);
             createdRB_dragged = true;
         }
     }

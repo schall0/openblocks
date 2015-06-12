@@ -7,6 +7,7 @@ import java.util.Map;
 
 import edu.mit.blocks.codeblocks.Block;
 import edu.mit.blocks.codeblocks.BlockGenus;
+import edu.mit.blocks.codeblocks.LinkRule;
 import edu.mit.blocks.codeblockutil.custom.IBlockLabelBuilder;
 import edu.mit.blocks.renderable.RenderableBlock;
 
@@ -23,9 +24,10 @@ import edu.mit.blocks.renderable.RenderableBlock;
  *
  */
 
-public class WorkspaceEnvironment {
+public class WorkspaceEnvironment extends PageChangeEventManager {
 
 	private final IBlockLabelBuilder blockLabelBuilder;
+
 	
 	public WorkspaceEnvironment(IBlockLabelBuilder blockLabelBuilder) {
 		this.blockLabelBuilder = blockLabelBuilder;
@@ -141,6 +143,12 @@ public class WorkspaceEnvironment {
         //BlockStub.reset();
         this.parentNameToParentBlock.clear();
         this.parentNameToBlockStubs.clear();
+        
+        /*
+         * delete only the block model, this.rules (definition to determine if blocks can be linked) has not to be deleted
+         */
+        //this.rules.clear();
+        
     }
 
     // BlockGenuses
@@ -168,5 +176,10 @@ public class WorkspaceEnvironment {
         nameToGenus.clear();
     }
 
-
+    private ArrayList<LinkRule> rules = new ArrayList<LinkRule>();
+    
+    public ArrayList<LinkRule> getRules() {
+		return rules;
+	}
+    
 }

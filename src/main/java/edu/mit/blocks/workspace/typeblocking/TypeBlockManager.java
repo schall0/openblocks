@@ -153,7 +153,7 @@ public class TypeBlockManager {
         }
         if (!isNullBlockInstance(typeBlockManager.focusManager.getFocusBlockID())) {
             typeBlockManager.deleteBlockAndChildren();
-            PageChangeEventManager.notifyListeners();
+            workspace.getEnv().notifyListeners();
         }
     }
 

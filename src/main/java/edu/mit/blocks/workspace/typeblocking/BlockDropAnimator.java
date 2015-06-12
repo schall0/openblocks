@@ -85,7 +85,7 @@ public class BlockDropAnimator implements ActionListener {
 
             //TODO: check if focumanager's before parent is same as
             //the parent we have here and check if new focusblock is child block
-            PageChangeEventManager.notifyListeners();
+            workspace.getEnv().notifyListeners();
         } else {
             //childBlock.setLocation(focusPoint);
             // TODO: This needs to change if the parent block doesn't have any more sockets for children
