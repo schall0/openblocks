@@ -6,7 +6,7 @@ public class CompilerException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
-    public enum Error {
+    enum Error {
 
         UNSUPPORTED_VALUE
     }
@@ -23,15 +23,12 @@ public class CompilerException extends Exception {
     }
 
     public String getMessage() {
-        StringBuilder ans = new StringBuilder(USE_DEBUGGING_MESSAGES ? "Block " + illegalBlockID + " " + label + ": " : "");
-        switch (error) {
-            case UNSUPPORTED_VALUE:
-                ans.append("Unsupported value.");
-                break;
-            default:
-                ans.append("Unknown error");
-        }
-
-        return ans.toString();
+    	StringBuilder ans = new StringBuilder(USE_DEBUGGING_MESSAGES ? "Block " + illegalBlockID + " " + label + ": " : "");
+    	if (error.name().equals(Error.UNSUPPORTED_VALUE.name())) {
+    		ans.append("Unsupported value.");
+    	} else {
+    		ans.append("Unknown error");
+    	}
+    	return ans.toString();
     }
 }
