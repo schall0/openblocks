@@ -220,7 +220,9 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
         public CanvasPane() {
         	
         	Icon icon = UIManager.getIcon("InternalFrame.closeIcon");
-        	JButton closeBtn = new JButton("close", icon);
+        	JButton closeBtn = new JButton("Close", icon);
+        	closeBtn.setOpaque(true);
+        	closeBtn.setBackground(new Color(190, 200, 220));
         	closeBtn.addActionListener(e -> {
         		timer.shrink();
         	});
