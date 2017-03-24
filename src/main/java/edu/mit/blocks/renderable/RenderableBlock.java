@@ -1455,7 +1455,7 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
         }
     }
 
-    private void startDragging(RenderableBlock renderable, WorkspaceWidget widget, boolean skip) {
+    private void startDragging(RenderableBlock renderable, WorkspaceWidget widget) {
         renderable.pickedUp = true;
         renderable.lastDragWidget = widget;
         if (renderable.hasComment()) {
@@ -1463,16 +1463,12 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
         }
         Component oldParent = renderable.getParent();
         Workspace workspace = renderable.getWorkspace();
-        if (! skip)  {
-        	// With Java 8u45, this call breaks the mouseDragged event receiving 
-        	workspace.addToBlockLayer(renderable);
-        	// Having this call without the previous addToBlockLayer() one shifts the block to a wrong location
-        	renderable.setLocation(SwingUtilities.convertPoint(oldParent, renderable.getLocation(), workspace));
-        }
+        workspace.addToBlockLayer(renderable);
+        renderable.setLocation(SwingUtilities.convertPoint(oldParent, renderable.getLocation(), workspace));
         renderable.setHighlightParent(workspace);
         for (BlockConnector socket : BlockLinkChecker.getSocketEquivalents(workspace.getEnv().getBlock(renderable.blockID))) {
             if (socket.hasBlock()) {
-                startDragging(workspace.getEnv().getRenderableBlock(socket.getBlockID()), widget, skip);
+                startDragging(workspace.getEnv().getRenderableBlock(socket.getBlockID()), widget);
             }
         }
     }
@@ -1609,20 +1605,9 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
             popup.show(this, e.getX(), e.getY());
         }
         workspace.getMiniMap().repaint();
-        
-        drag = 0;
     }
 
-    int drag = 0;
-    
     public void mouseDragged(MouseEvent e) {
-    	mouseDragged(e, true);
-    }
-    
-    public void mouseDragged(MouseEvent e, boolean skip) {
-    	
-    	drag++;
-    	
         if (SwingUtilities.isLeftMouseButton(e)) {
             if (pickedUp) {
                 Point pp = SwingUtilities.convertPoint(this, e.getPoint(), workspace.getMiniMap());
@@ -1659,7 +1644,7 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
                         //NOTIFY WORKSPACE LISTENERS OF DISCONNECTION
                         workspace.notifyListeners(new WorkspaceEvent(workspace, widget, link, WorkspaceEvent.BLOCKS_DISCONNECTED));
                     }
-                    startDragging(this, widget, skip && drag == 1);
+                    startDragging(this, widget);
                 }
 
                 // drag this block and all attached to it
@@ -2028,7 +2013,6 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
         this.blockLabel.setToolTipText(text);
     }
 
-    @Override
     protected boolean processKeyBinding(KeyStroke ks, KeyEvent e,
             int condition, boolean pressed) {
         switch (e.getKeyCode()) {

@@ -100,7 +100,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
     /** The default abstract width */
     private static final int DEFAULT_ABSTRACT_WIDTH = 700;
     /** The default abstract height */
-    public static final int DEFAULT_ABSTRACT_HEIGHT = 1600 *5;
+    public static final int DEFAULT_ABSTRACT_HEIGHT = 1600;
     /** An empty string */
     private static final String emptyString = "";
     /** this.zoomLevel: zoom level state */
@@ -1195,7 +1195,6 @@ class PageJComponent extends JLayeredPane implements RBParent {
     /** @overrides RBParent.addToBlockLayer() */
     @Override
     public void addToBlockLayer(Component c) {
-    	this.remove(c);
         this.add(c, BLOCK_LAYER);
 
     }
