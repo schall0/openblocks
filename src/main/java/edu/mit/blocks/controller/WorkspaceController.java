@@ -542,7 +542,9 @@ public class WorkspaceController {
      * invoked from the event-dispatching thread.
      */
     private void createAndShowGUI() {
-        frame = new JFrame("WorkspaceDemo");
+    	String dir = System.getProperty("user.dir");
+    	String[] split = dir.split("\\" + File.separator);
+        frame = new JFrame(split[split.length -1] + " "+ System.getProperty("java.version"));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 500, 500);
         final SearchBar sb = new SearchBar("Search blocks",

@@ -145,13 +145,17 @@ public class JComponentDragHandler implements MouseListener, MouseMotionListener
         oldLocY = myComponent.getY();
     }
 
+    public void mouseDragged(MouseEvent e) {
+    	mouseDragged(e, false);
+    }
+    
     /**
      * This method is called when the mouse is dragged over the JComponent.
      * Moves the JComponent by the amount of the drag such that the point
      * under which the mouse the pressed remains under the mouse cursor.  In
      * other words, "drags" the JComponent.
      */
-    public void mouseDragged(MouseEvent e) {
+    public void mouseDragged(MouseEvent e, boolean skip) {
         //System.out.println("mouse dragged: "+this.getLocation());
         myComponent.setCursor(closedHandCursor);
         mCurrentX = e.getX();
@@ -181,7 +185,7 @@ public class JComponentDragHandler implements MouseListener, MouseMotionListener
         dragDY = newY - myComponent.getY();
 
         // move to the new location
-        myComponent.setLocation(newX, newY);
+        if ( ! skip) myComponent.setLocation(newX, newY);
     }
 
     /**

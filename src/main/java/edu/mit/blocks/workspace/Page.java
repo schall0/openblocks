@@ -1195,6 +1195,7 @@ class PageJComponent extends JLayeredPane implements RBParent {
     /** @overrides RBParent.addToBlockLayer() */
     @Override
     public void addToBlockLayer(Component c) {
+    	this.remove(c);
         this.add(c, BLOCK_LAYER);
 
     }
