@@ -47,11 +47,16 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
     /** the canvas that is wrapped by this card */
     private Canvas canvas;
     /** The button of this */
-    private CButton button;
+    public GlassButton button;
     /** The scroll that canvas lives in */
     private CScrollPane scroll;
     private final static int SCROLLBAR_WIDTH = 18;
 
+    
+    void displayAsSelected(boolean displayAsSelected) {
+    	button.displayAsSelected = displayAsSelected;
+    }
+    
     /**
      * constructor
      * @param i
@@ -90,7 +95,7 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
     /**
      * @return the button
      */
-    JComponent getButton() {
+    CButton getButton() {
         return button;
     }
 
@@ -124,6 +129,8 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
 
     private class GlassButton extends CButton {
 
+    	boolean displayAsSelected = false;
+        
         private static final long serialVersionUID = 328149080429L;
         //To get the shadow effect the text must be displayed multiple times at
         //multiple locations.  x represents the center, white label.
@@ -163,11 +170,16 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
                 g2.drawRoundRect(INSET, INSET, buttonWidth, buttonHeight, arc, arc);
             } else {
                 //paint highlightlayer
-                if (this.focus) {
+                if (this.displayAsSelected) {
                     gb.setColor(Color.yellow);
-                    gb.setStroke(new BasicStroke(3));
+                    gb.setStroke(new BasicStroke(30));
                     gb.drawRoundRect(INSET, INSET, buttonWidth, buttonHeight, arc, arc);
                     gb.setStroke(new BasicStroke(1));
+                } else if (this.focus) {
+                	gb.setColor(Color.yellow);
+                	gb.setStroke(new BasicStroke(3));
+                	gb.drawRoundRect(INSET, INSET, buttonWidth, buttonHeight, arc, arc);
+                	gb.setStroke(new BasicStroke(1));
                 }
                 // Paint the first layer
                 gb.setColor(canvas.getColor().darker());

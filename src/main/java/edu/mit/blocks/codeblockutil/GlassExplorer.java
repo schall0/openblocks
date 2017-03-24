@@ -17,9 +17,12 @@ import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Icon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 
 import edu.mit.blocks.workspace.Workspace;
 
@@ -141,10 +144,16 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
      * @param index
      */
     public void selectCanvas(int index) {
+    	
+    	drawers.forEach(card -> card.displayAsSelected(false));
+    	
         if ((!timer.timer.isRunning()) || (this.selectedCanvasIndex != index)) {
             if (index >= 0 && index < drawers.size()) {
                 this.selectedCanvasIndex = index;
                 GlassCard card = drawers.get(index);
+                
+                card.displayAsSelected(true);
+                
                 canvasPane.removeAll();
                 canvasPane.add(card.getScroll());
                 canvasPane.setBackground(card.getBackgorundColor());
@@ -183,7 +192,6 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
      * Rolls the canvasPane back underneath when focus is lost
      */
     public void focusLost(FocusEvent e) {
-        timer.shrink();
     }
 
     public void focusGained(FocusEvent e) {
@@ -204,12 +212,22 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
         private JPanel extraPanel;
         // border around the extraPanel to leave room for the CanvasPane
         // decorations like rounded corners and a little blank space.
-        private Insets insets = new Insets(15, 5, 35, 3);
+        private Insets insets = new Insets(15 +10/*start after the close button*/, 5, 35, 3);
 
         /**
          * Creates a new CanvasPane
          */
         public CanvasPane() {
+        	
+        	Icon icon = UIManager.getIcon("InternalFrame.closeIcon");
+        	JButton closeBtn = new JButton("Close", icon);
+        	closeBtn.setOpaque(true);
+        	closeBtn.setBackground(new Color(190, 200, 220));
+        	closeBtn.addActionListener(e -> {
+        		timer.shrink();
+        	});
+            super.add(closeBtn);
+        	
             // the extraPanel only exists for sizing reasons.  It is invisible.
             // Without it, when the CanvasPane opens (gets wider), the contents
             // try to resize themselves.  The extraPanel gives the contents
@@ -334,7 +352,7 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
                     canvasPane.repaint();
                 }
             } else {
-                if (canvasPane.getWidth() > 3) {
+            	if (canvasPane.getWidth() > 3) {
                     canvasPane.setSize(canvasPane.getWidth() / 3, canvasHeight);
                     canvasPane.revalidate();
                     canvasPane.repaint();
@@ -361,8 +379,10 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
          * Shrinks the canvasPane
          */
         public void shrink() {
+        	drawers.forEach(card -> card.displayAsSelected(false));
             this.expand = false;
             timer.start();
+            repaint();
         }
     }
 }
