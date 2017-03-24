@@ -2013,6 +2013,7 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
         this.blockLabel.setToolTipText(text);
     }
 
+    @Override
     protected boolean processKeyBinding(KeyStroke ks, KeyEvent e,
             int condition, boolean pressed) {
         switch (e.getKeyCode()) {

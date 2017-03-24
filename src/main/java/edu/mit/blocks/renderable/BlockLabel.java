@@ -326,9 +326,11 @@ public class BlockLabel implements MouseListener, MouseMotionListener, KeyListen
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ESCAPE:
             	workspace.getEnv().getRenderableBlock(blockID).requestFocus();
+            	e.consume();
                 return;
             case KeyEvent.VK_ENTER:
             	workspace.getEnv().getRenderableBlock(blockID).requestFocus();
+            	e.consume();
                 return;
             case KeyEvent.VK_TAB:
             	workspace.getEnv().getRenderableBlock(blockID).processKeyPressed(e);
