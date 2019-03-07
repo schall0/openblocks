@@ -208,6 +208,10 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
         this.plugTag = new ConnectorTag(getBlock().getPlug());
         this.afterTag = new ConnectorTag(getBlock().getAfterConnector());
         this.beforeTag = new ConnectorTag(getBlock().getBeforeConnector());
+        this.plugTag.setZoomLevel(getZoom());
+        this.afterTag.setZoomLevel(getZoom());
+        this.beforeTag.setZoomLevel(getZoom());
+
         this.blockLabel = workspace.getEnv().getBlockLabelBuilder().buildBlockLabel(workspace, blockID);
         this.pageLabel = new PageLabel(workspace, getBlock().getPageLabel(), BlockLabel.Type.PAGE_LABEL, false, blockID);
         this.add(pageLabel.getJComponent());
@@ -483,6 +487,7 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
             ConnectorTag tag = this.getConnectorTag(socket);
             if (tag == null) {
                 tag = new ConnectorTag(socket);
+ 		tag.setZoomLevel(getZoom());
                 if (SocketLabel.ignoreSocket(socket)) {
                     tag.setLabel(null); //ignored sockets have no labels
                 } else {
