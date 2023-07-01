@@ -8,7 +8,6 @@ import edu.mit.blocks.codeblocks.Block;
 import edu.mit.blocks.codeblocks.BlockLink;
 import edu.mit.blocks.renderable.RenderableBlock;
 import edu.mit.blocks.workspace.Page;
-import edu.mit.blocks.workspace.PageChangeEventManager;
 import edu.mit.blocks.workspace.Workspace;
 import edu.mit.blocks.workspace.WorkspaceEvent;
 

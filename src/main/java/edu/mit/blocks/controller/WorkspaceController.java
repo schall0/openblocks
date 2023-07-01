@@ -313,7 +313,7 @@ public class WorkspaceController {
      * assumes that a Language Definition File has already been specified for
      * this programming project.
      *
-     * @param element element of the programming project to load
+     * @param elementToLoad element of the programming project to load
      */
     public void loadProjectFromElement(Element elementToLoad) {
         workspace.loadWorkspaceFrom(elementToLoad, langDefRoot);

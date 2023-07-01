@@ -185,7 +185,6 @@ public class BlockStub extends Block {
 
     /**
      * Returns a list of the block ids of the specified parent's stubs
-     * @param blockID
      */
     public static Iterable<Long> getStubsOfParent(Workspace workspace, Block block) {
         ArrayList<Long> stubs = workspace.getEnv().getBlockStubs(block.getBlockLabel() + block.getGenusName());

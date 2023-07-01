@@ -16,7 +16,6 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * For a given {@link Workspace}, a {@link WorkspaceEnvironment} stores a reference to all instances of :
  * {@link Block}
  * {@link RenderableBlock}
- * {@link BlockStub}
  * {@link BlockGenus}
  *
  * This enables to separate the components of each workspace, and so to use several at the same time.
