@@ -331,32 +331,32 @@ final public class Navigator {
     private class ExplorerSwitcher extends JPanel {
 
         private static final long serialVersionUID = 328149080295L;
-        private final int LABEL_HEIGHT = 9;
-        private final Dimension ARROW_DIMENSION = new Dimension(16, 16);
         private JLabel mainLabel;
         private JLabel leftLabel;
-        private CArrowButton leftArrow;
         private JLabel rightLabel;
-        private CArrowButton rightArrow;
 
         private ExplorerSwitcher() {
             leftLabel = new JLabel("", SwingConstants.LEFT);
             leftLabel.setForeground(Color.white);
+            int LABEL_HEIGHT = 9;
             leftLabel.setFont(new Font("Arial", Font.PLAIN, LABEL_HEIGHT));
-            leftArrow = new CArrowButton(CArrowButton.Direction.WEST) {
+            CArrowButton leftArrow = new CArrowButton(CArrowButton.Direction.WEST) {
                 private static final long serialVersionUID = 328149080296L;
+
                 @Override
                 public void triggerAction() {
                     setView(position - 1);
                 }
             };
+            Dimension ARROW_DIMENSION = new Dimension(16, 16);
             leftArrow.setPreferredSize(ARROW_DIMENSION);
 
             rightLabel = new JLabel("", SwingConstants.RIGHT);
             rightLabel.setForeground(Color.white);
             rightLabel.setFont(new Font("Arial", Font.PLAIN, LABEL_HEIGHT));
-            rightArrow = new CArrowButton(CArrowButton.Direction.EAST) {
+            CArrowButton rightArrow = new CArrowButton(CArrowButton.Direction.EAST) {
                 private static final long serialVersionUID = 328149080297L;
+
                 @Override
                 public void triggerAction() {
                     setView(position + 1);
@@ -419,8 +419,6 @@ final public class Navigator {
      */
     private class NavigationAnimator implements ActionListener {
 
-        /** The maximum number of times we can scroll.  A higher value gives it a higher frames/second */
-        private final int partitions = 10;
         /** An internal timer that manages incremental scrolling */
         private Timer timer;
         /** The new x-location of the view after scrolling is complete */
@@ -444,6 +442,8 @@ final public class Navigator {
          * @param x - The x location to view.
          */
         private void start(int x) {
+            /** The maximum number of times we can scroll.  A higher value gives it a higher frames/second */
+            int partitions = 10;
             this.count = partitions;
             this.value = x;
             this.dx = ((x - scroll.getHorizontalScrollBar().getValue()) / partitions);

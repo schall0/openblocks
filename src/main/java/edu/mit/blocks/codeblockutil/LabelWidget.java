@@ -622,7 +622,6 @@ public class LabelWidget extends JComponent {
         //..........................................grey points.............................................black points
         private final int[][] shadowPositionArray = {{0, -1}, {1, -1}, {-1, 0}, {2, 0}, {-1, 1}, {1, 1}, {0, 2}, {1, 0}, {0, 1}};
         private final float[] shadowColorArray = {0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0, 0};
-        private double offsetSize = 1;
 
         private ShadowLabel() {
             this.addMouseListener(this);
@@ -638,6 +637,7 @@ public class LabelWidget extends JComponent {
             //super.paint(g);
 
             //draw shadows
+            double offsetSize = 1;
             for (int i = 0; i < shadowPositionArray.length; i++) {
                 int dx = shadowPositionArray[i][0];
                 int dy = shadowPositionArray[i][1];

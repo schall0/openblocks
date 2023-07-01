@@ -55,8 +55,6 @@ public class BlockShape {
     private GeneralPath gpLeft;
     /** Bottom Clockwise */
     private GeneralPath gpLeftClockwise;
-    /** Final area of the block */
-    private Area blockArea;
     /** Body of the block */
     protected Rectangle blockBody;
     protected Point2D topLeftCorner;
@@ -632,7 +630,8 @@ public class BlockShape {
         BlockShapeUtil.appendPath(gpCounterClockwise, gpClockwise, true);
 
         //convert it to an area
-        blockArea = new Area(gpCounterClockwise);
+        /** Final area of the block */
+        Area blockArea = new Area(gpCounterClockwise);
 
         return blockArea;
     }

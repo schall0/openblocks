@@ -24,7 +24,6 @@ public class CLabel extends JLabel {
     //..........................................grey points.............................................black points
     private final int[][] shadowPositionArray = {{0, -1}, {1, -1}, {-1, 0}, {2, 0}, {-1, 1}, {1, 1}, {0, 2}, {1, 0}, {0, 1}};
     private final float[] shadowColorArray = {0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0, 0};
-    private double offsetSize = 1;
 
     public CLabel(String text) {
         super(text);
@@ -49,6 +48,7 @@ public class CLabel extends JLabel {
                 int dx = shadowPositionArray[i][0];
                 int dy = shadowPositionArray[i][1];
                 g2.setColor(new Color(0, 0, 0, shadowColorArray[i]));
+                double offsetSize = 1;
                 g2.drawString(text, x + (int) ((dx) * offsetSize), y + (int) ((dy) * offsetSize));
             }
             g2.setColor(Color.white);

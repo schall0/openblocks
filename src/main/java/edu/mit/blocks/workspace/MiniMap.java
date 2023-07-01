@@ -533,14 +533,8 @@ public class MiniMap extends JPanel implements WorkspaceWidget, MouseListener, M
         private int count;
         /**Internal Timer*/
         private javax.swing.Timer timer;
-        /**absolute value of width growth*/
-        private int dx = DEFAULT_WIDTH / 10;
 
-        ;
-        /**absolute value of height Growth*/
-        private int dy = DEFAULT_HEIGHT / 10;
-
-        ;
+        ;;
         /**Indicates whether the MiniMap is/was expanding (true)
          * or skrinking (false)*/
         private boolean expand;
@@ -576,7 +570,11 @@ public class MiniMap extends JPanel implements WorkspaceWidget, MouseListener, M
                 } else {
                     count = count - 1;
                 }
+                /**absolute value of width growth*/
+                int dx = DEFAULT_WIDTH / 10;
                 MAPWIDTH = DEFAULT_WIDTH + count * dx;
+                /**absolute value of height Growth*/
+                int dy = DEFAULT_HEIGHT / 10;
                 MAPHEIGHT = DEFAULT_HEIGHT + count * dy;
                 repositionMiniMap();
                 repaint();

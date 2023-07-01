@@ -23,9 +23,6 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  */
 public class BlockLinkChecker {
 
-    // TODO get a better value
-    private static double MAX_LINK_DISTANCE = 20.0;
-
     /**
      * Adds a rule to the end of this checker's list of rules.
      * If the rule already exists in the rule list, the rule is removed in the original location and 
@@ -71,6 +68,8 @@ public class BlockLinkChecker {
         BlockConnector closestSocket1 = null;
         BlockConnector closestSocket2 = null;
         Block closestBlock2 = null;
+        // TODO get a better value
+        double MAX_LINK_DISTANCE = 20.0;
         double closestDistance = MAX_LINK_DISTANCE;
         double currentDistance;
 

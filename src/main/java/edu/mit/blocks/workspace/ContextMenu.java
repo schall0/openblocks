@@ -21,17 +21,14 @@ public class ContextMenu extends PopupMenu implements ActionListener {
     //menu items for renderableblock context menu
     private static ContextMenu rndBlockMenu = new ContextMenu();
     private static ContextMenu addCommentMenu = new ContextMenu();
-    private static MenuItem addCommentItem;
     private final static String ADD_COMMENT_BLOCK = "ADDCOMMENT";
     private static boolean addCommentMenuInit = false;
     private static ContextMenu removeCommentMenu = new ContextMenu();
-    private static MenuItem removeCommentItem;
     private final static String REMOVE_COMMENT_BLOCK = "REMOVECOMMENT";
     private static boolean removeCommentMenuInit = false;
     //context menu for canvas plus
     //menu items for canvas context menu
     private static ContextMenu canvasMenu = new ContextMenu();
-    private static MenuItem arrangeAllBlocks;
     private final static String ARRANGE_ALL_BLOCKS = "ARRANGE_ALL_BLOCKS";
     private static boolean canvasMenuInit = false;
     /** The JComponent that launched the context menu in the first place */
@@ -45,7 +42,7 @@ public class ContextMenu extends PopupMenu implements ActionListener {
      * Initializes the context menu for adding Comments.
      */
     private static void initAddCommentMenu() {
-        addCommentItem = new MenuItem("Add Comment");
+        MenuItem addCommentItem = new MenuItem("Add Comment");
         addCommentItem.setActionCommand(ADD_COMMENT_BLOCK);
         addCommentItem.addActionListener(rndBlockMenu);
         addCommentMenu.add(addCommentItem);
@@ -57,7 +54,7 @@ public class ContextMenu extends PopupMenu implements ActionListener {
      */
     private static void initRemoveCommentMenu() {
 
-        removeCommentItem = new MenuItem("Delete Comment");
+        MenuItem removeCommentItem = new MenuItem("Delete Comment");
         removeCommentItem.setActionCommand(REMOVE_COMMENT_BLOCK);
         removeCommentItem.addActionListener(rndBlockMenu);
 
@@ -72,7 +69,7 @@ public class ContextMenu extends PopupMenu implements ActionListener {
      *
      */
     private static void initCanvasMenu() {
-        arrangeAllBlocks = new MenuItem("Organize all blocks");  //TODO some workspaces don't have pages
+        MenuItem arrangeAllBlocks = new MenuItem("Organize all blocks");  //TODO some workspaces don't have pages
         arrangeAllBlocks.setActionCommand(ARRANGE_ALL_BLOCKS);
         arrangeAllBlocks.addActionListener(canvasMenu);
 

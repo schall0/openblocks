@@ -225,10 +225,6 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
     public void disableMiniMap() {
         miniMap.hideMiniMap();
     }
-    ////////////////
-    // WIDGETS
-    ////////////////
-    private Point p = new Point(0, 0); // this is for speed - faster not to re-create Points
 
     /**
      * Returns the WorkspaceWidget currently at the specified point
@@ -248,7 +244,11 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
         while (it.hasNext()) {
             //convert point to the widgets' coordinate system
             widget = it.next();
-            p = SwingUtilities.convertPoint((JComponent) this, point, widget.getJComponent());
+            ////////////////
+            // WIDGETS
+            ////////////////
+            // this is for speed - faster not to re-create Points
+            Point p = SwingUtilities.convertPoint((JComponent) this, point, widget.getJComponent());
             //test if widget contains point and widget is visible
             if (widget.contains(p.x, p.y) && widget.getJComponent().isVisible()) {
                 return widget; // because these are sorted by draw depth, the first hit is on top

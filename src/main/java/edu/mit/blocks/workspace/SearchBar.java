@@ -34,7 +34,6 @@ public class SearchBar {
     private final String defaultText;
     private Set<SearchableContainer> containerSet = new HashSet<SearchableContainer>();
     private Map<SearchableContainer, Set<SearchableElement>> searchResults = new HashMap<SearchableContainer, Set<SearchableElement>>();
-    private Timer searchUpdater;
     private static final int SEARCH_UPDATER_DELAY = 5000;
     private Timer searchThrottle;
     private static final int SEARCH_THROTTLE_DELAY = 250;
@@ -125,7 +124,8 @@ public class SearchBar {
 
         // Repeat search periodically to refresh results in case elements change,
         // such as when a new block is dragged onto the Workspace and should be included in the results.
-        searchUpdater = new Timer(SEARCH_UPDATER_DELAY, new ActionListener() {
+        // Skip the update if the throttle is about to perform a search anyway.
+        Timer searchUpdater = new Timer(SEARCH_UPDATER_DELAY, new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 // Skip the update if the throttle is about to perform a search anyway.

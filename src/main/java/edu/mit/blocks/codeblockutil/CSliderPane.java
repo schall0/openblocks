@@ -68,12 +68,6 @@ public class CSliderPane extends JPanel implements ComponentListener {
     /** ratio conversion form raw (int) value to real (float) value */
     private static float ratio = 1000;
 
-    /** the margin of this widget */
-    private static int margin = 10;
-
-    /** the header height of this widget */
-    private static int header = 20;
-
     /** the slider that graphcally displays thhe abstract model*/
     private CSlider slider;
 
@@ -285,6 +279,10 @@ public class CSliderPane extends JPanel implements ComponentListener {
      * bounding strings of the text fields or size of this widget
      */
     private void repositionComponent() {
+        /** the header height of this widget */
+        int header = 20;
+        /** the margin of this widget */
+        int margin = 10;
         valueLabel.setBounds(
                 this.getWidth() - margin - valueLabel.getPreferredSize().width - 1,
                 header,

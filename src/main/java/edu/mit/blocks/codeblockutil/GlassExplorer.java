@@ -57,15 +57,13 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
     private static final int SELECTED_CANVAS_WIDTH = 225;
     /** A List of listeners for this canvas */
     private List<ExplorerListener> listeners;
-    /** The workspace in use */
-    private final Workspace workspace;
 
     /**
      * Constructor
      */
     public GlassExplorer(Workspace workspace) {
         super(new BorderLayout());
-        this.workspace = workspace;
+        /** The workspace in use */
         this.selectedCanvasIndex = DEFAULT_INDEX;
         this.drawers = new ArrayList<GlassCard>();
         this.setOpaque(true);

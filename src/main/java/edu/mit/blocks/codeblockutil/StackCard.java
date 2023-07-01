@@ -50,7 +50,6 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
  */
 class StackCard implements PropertyChangeListener {
 
-    private int buttonHeight = 30;
     /** Canvas that this StackCard renders */
     private Canvas canvas;
     /** A scroll pane to display as much of the Canvas as possible */
@@ -241,21 +240,19 @@ class StackCard implements PropertyChangeListener {
     private class CardPane extends JPanel {
 
         private static final long serialVersionUID = 49283583495L;
-        /** The scroll pane that wraps the entire canvas. */
-        private CScrollPane scroll;
-        /** The drawer's label */
-        private CardLabel label;
 
         /** Constructor */
         private CardPane() {
             super(new BorderLayout());
             this.setOpaque(false);
-            this.scroll = new CHoverScrollPane(
+            /** The scroll pane that wraps the entire canvas. */
+            CScrollPane scroll = new CHoverScrollPane(
                     canvas.getJComponent(),
                     ScrollPolicy.VERTICAL_BAR_AS_NEEDED,
                     ScrollPolicy.HORIZONTAL_BAR_AS_NEEDED,
                     18, canvas.getColor(), new Color(100, 100, 100, 100));
-            this.label = new CardLabel();
+            /** The drawer's label */
+            CardLabel label = new CardLabel();
             this.add(label, BorderLayout.NORTH);
             this.add(scroll, BorderLayout.CENTER);
         }
@@ -281,7 +278,6 @@ class StackCard implements PropertyChangeListener {
         //..........................................grey points.............................................black points
         private final int[][] shadowPositionArray = {{0, -1}, {1, -1}, {-1, 0}, {2, 0}, {-1, 1}, {1, 1}, {0, 2}, {1, 0}, {0, 1}};
         private final float[] shadowColorArray = {0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0, 0};
-        private double offsetSize = 1;
 
         /**
          * Constructs a new DrawerLabel with a shadaow-outlined text.
@@ -290,6 +286,7 @@ class StackCard implements PropertyChangeListener {
             super();
             this.setOpaque(false);
             this.setBorder(null);
+            int buttonHeight = 30;
             this.setFont(new Font("Ariel", Font.BOLD, buttonHeight - 3));
             this.setPreferredSize(new Dimension(0, buttonHeight));
             this.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -343,6 +340,7 @@ class StackCard implements PropertyChangeListener {
                 float y = (float) ((this.getHeight() / 2) + (textBounds.getHeight() / 2)) - metrics.getDescent();
 
                 g.setColor(Color.black);
+                double offsetSize = 1;
                 for (int i = 0; i < shadowPositionArray.length; i++) {
                     int dx = shadowPositionArray[i][0];
                     int dy = shadowPositionArray[i][1];

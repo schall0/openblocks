@@ -52,8 +52,6 @@ public class AutoCompletePanel extends JPanel implements MouseListener, MouseMot
     private int preferredWidth = 165; //This is the default width of the keytyping window
     /**Minimum height**/
     private int preferredHeight = 125;  //This is the default height of the keytyping window
-    /**font of this**/
-    private final Font font;
     /**editable text field for user to enter in desired pattern**/
     private final JTextField editor;
     /**menu that displays set of possibilities from user-input patter**/
@@ -66,7 +64,8 @@ public class AutoCompletePanel extends JPanel implements MouseListener, MouseMot
     public AutoCompletePanel(Workspace workspace) {
         super(new BorderLayout());
         this.workspace = workspace;
-        font = new Font("Ariel", Font.BOLD, 12);
+        /**font of this**/
+        Font font = new Font("Ariel", Font.BOLD, 12);
 
         //set up editor (text field)
         editor = new JTextField();
