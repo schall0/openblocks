@@ -70,10 +70,6 @@ public class CColorChooser extends CButton implements MouseListener, MouseMotion
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    @Override
     public void mouseEntered(MouseEvent e) {
     }
 
