@@ -588,7 +588,7 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
     }
 
     public void scrollToComponent(JComponent c) {
-        blockCanvas.scrollToComponent(c);
+        blockCanvas.scrollToComponent();
     }
 
     public void stateChanged(ChangeEvent e) {

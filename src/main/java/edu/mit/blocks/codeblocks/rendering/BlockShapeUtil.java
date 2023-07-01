@@ -24,23 +24,7 @@ public class BlockShapeUtil {
         Point2D currentPoint = gp.getCurrentPoint();
         gp.lineTo((float) currentPoint.getX() + x, (float) currentPoint.getY() + y);
     }
-    
-    /**
-     * Draws a curve segment relative to the current point of the GeneralPath.
-     * 
-     * Adds a curved segment, defined by three new points, to the path by
-     * drawing a Bézier curve that intersects both the current coordinates and
-     * the coordinates (x3, y3), using the specified points (x1, y1) and (x2,
-     * y2) as Bézier control points.
-     */
-    public static void curveTo(GeneralPath gp, float x1, float y1, float x2, float y2, float x3, float y3) {
-        Point2D currentPoint = gp.getCurrentPoint();
-        gp.curveTo(
-                x1 + (float) currentPoint.getX(), y1 + (float) currentPoint.getY(),
-                x2 + (float) currentPoint.getX(), y2 + (float) currentPoint.getY(),
-                x3 + (float) currentPoint.getX(), y3 + (float) currentPoint.getY());
-    }
-    
+
     /**
      * Draws a corner relative to the current point of the GeneralPath.
      * @param gp is the general path to which the corner is being added
@@ -308,28 +292,4 @@ public class BlockShapeUtil {
         }
     }
 
-    /** Prints out a GeneralPath.  Used for debugging only */
-    public static void printPath(GeneralPath gp) {
-        if (gp == null) {
-            System.out.println("(null path)");
-            return;
-        }
-        int type;
-        float[] segment = new float[6];
-        PathIterator i = gp.getPathIterator(new AffineTransform());
-        while (!i.isDone()) {
-            type = i.currentSegment(segment);
-            if (type == PathIterator.SEG_MOVETO) {
-                System.out.println("m: (" + segment[0] + ", " + segment[1] + ")");
-            } else if (type == PathIterator.SEG_LINETO) {
-                System.out.println("l: (" + segment[0] + ", " + segment[1] + ")");
-            } else if (type == PathIterator.SEG_QUADTO) {
-                System.out.println("q: (" + segment[0] + ", " + segment[1] + "), (" + segment[2] + ", " + segment[3] + ")");
-            } else if (type == PathIterator.SEG_CUBICTO) {
-                System.out.println("c: (" + segment[0] + ", " + segment[1] + "), (" + segment[2] + ", " + segment[3] + "), (" + segment[4] + ", " + segment[5] + ")");
-            }
-            i.next();
-        }
-    }
-	
 }

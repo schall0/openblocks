@@ -50,10 +50,6 @@ public class BlockNode {
         return genusName;
     }
 
-    String getParentGenusName() {
-        return parentGenus;
-    }
-
     String getLabel() {
         return label;
     }

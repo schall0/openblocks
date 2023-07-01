@@ -254,22 +254,6 @@ public class BlockGenus {
     }
 
     /**
-     * Returns true if this genus has a "before" connector; false otherwise.
-     * @return true is this genus has a "before" connector; false otherwise.
-     */
-    public boolean hasBeforeConnector() {
-        return !isStarter;
-    }
-
-    /**
-     * Returns true if this genus has a "after" connector; false otherwise.
-     * @return true if this genus has a "after" connector; false otherwise.
-     */
-    public boolean hasAfterConnector() {
-        return !isTerminator;
-    }
-
-    /**
      * Returns true if the value of this genus is contained within the label of this; false
      * otherwise
      * @return true if the value of this genus is contained within the label of this; false

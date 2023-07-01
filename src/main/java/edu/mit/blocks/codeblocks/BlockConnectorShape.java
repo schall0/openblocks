@@ -87,9 +87,7 @@ public class BlockConnectorShape {
     public static final int POLYMORPHIC_1 = 10;
     public static final int POLYMORPHIC_2 = 11;
     public static final int POLYMORPHIC_3 = 12;
-    
-    public static final int PROC_PARAM = 13;
-    
+
     public static final int COMMAND = 14;
     
     public static final boolean DEBUG_MODE = false;
@@ -290,12 +288,6 @@ public class BlockConnectorShape {
         return addDataConnection(blockPath, connectionShape, true, onRightSide);
     }
 
-    //  associated method to draw starting from the bottom of the socket
-    public Point2D addDataPlugUp(GeneralPath blockPath, String connectionShape, boolean onRightSide) {
-        //if onRightSide, plug is convex-right
-        return addDataConnection(blockPath, connectionShape, false, onRightSide);
-    }
-    
     /**
      * Appends a specific data connection GeneralPath to a given GeneralPath.  startFromTop specifies 
      * that the end of the current generalPath is at the top of the data connection to be drawn.

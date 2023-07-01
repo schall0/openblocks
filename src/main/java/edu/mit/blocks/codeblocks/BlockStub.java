@@ -325,13 +325,6 @@ public class BlockStub extends Block {
     ////////////////////////////////////
     // PARENT INFORMATION AND METHODS //
     ////////////////////////////////////
-    /**
-     * Returns the parent name of this stub
-     * @return the parent name of this stub
-     */
-    public String getParentName() {
-        return parentName;
-    }
 
     /**
      * Returns the parent block of this stub
@@ -351,15 +344,6 @@ public class BlockStub extends Block {
      */
     public String getParentGenus() {
         return parentGenus;
-    }
-
-    /**
-     *
-     */
-    public boolean doesParentExist() {
-        //TODO ria: needs to check BlockCanvas if parent is "alive"
-
-        return true;
     }
 
     ///////////////////////////////////

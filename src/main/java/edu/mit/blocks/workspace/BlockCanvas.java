@@ -47,8 +47,6 @@ import edu.mit.blocks.renderable.RenderableBlock;
  */
 public class BlockCanvas implements PageChangeListener, ISupportMemento {
 
-    /** serial version ID */
-    private static final long serialVersionUID = 7458721329L;
     /** the collection of pages that this BlockCanvas stores */
     private List<Page> pages = new ArrayList<Page>();
     /** the collection of PageDivideres that this BlockCanvas stores */
@@ -96,15 +94,6 @@ public class BlockCanvas implements PageChangeListener, ISupportMemento {
     //////////////////////////////
     //Rendering View Accessor	//
     //////////////////////////////
-    /** @returns X Coordinate of BlockCanvas graphical representation */
-    public int getX() {
-        return scrollPane.getX();
-    }
-
-    /** @returns Y coordinate of BlockCanvas graphical representation */
-    public int getY() {
-        return scrollPane.getY();
-    }
 
     /** @returns width of BlockCanvas graphical representation */
     public int getWidth() {
@@ -207,7 +196,7 @@ public class BlockCanvas implements PageChangeListener, ISupportMemento {
         //not yet implemented
     }
 
-    public void scrollToComponent(JComponent c) {
+    public void scrollToComponent() {
         //not yet implemented
     }
 
@@ -270,17 +259,6 @@ public class BlockCanvas implements PageChangeListener, ISupportMemento {
     }
 
     /**
-     * @param page the page to add to the BlockCanvas
-     * 
-     * @requires page != null
-     * @modifies this.pages
-     * @effects Adds the given page to the rightmost side of the BlockCanvas
-     */
-    public void addPage(Page page) {
-        this.addPage(page, pages.size());
-    }
-
-    /**
      * @param page - page to be added
      * @param position - the index at which to add the page where 0 is rightmost
      * 
@@ -339,24 +317,6 @@ public class BlockCanvas implements PageChangeListener, ISupportMemento {
             workspace.getEnv().notifyListeners();
         }
         return page;
-    }
-
-    /**
-     * @param position - 0 is the left most page
-     * 
-     * @requires none
-     * @returns the page that was removed or null if non was removed.
-     * @modifies this.pages
-     * @effects If the position is within bounds, then remove
-     * 			the page located at the specified position.
-     * 			Do nothing if the position is out of bounds.
-     */
-    public Page removePage(int position) {
-        if (this.hasPageAt(position)) {
-            return removePage(pages.get(position));
-        } else {
-            return null;
-        }
     }
 
     /**

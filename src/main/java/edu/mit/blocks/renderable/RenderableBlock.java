@@ -1065,7 +1065,7 @@ public class RenderableBlock extends JComponent implements SearchableElement, Mo
      */
     public void blockConnected(BlockConnector connectedSocket, long connectedBlockID) {
         //notify block first so that we will only need to repaint this block once
-        getBlock().blockConnected(connectedSocket, connectedBlockID);
+        getBlock().blockConnected(connectedSocket);
 
         //synchronize sockets
         synchronizeSockets();

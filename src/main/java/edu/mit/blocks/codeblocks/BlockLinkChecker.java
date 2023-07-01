@@ -120,76 +120,6 @@ public class BlockLinkChecker {
     }
 
     /**
-     * NOTE: ALWAYS prefer BlockLinkChecker.getLink over this method.
-     * 
-     * Checks to see if a <code>RenderableBlock</code>s can connect
-     * to other <code>RenderableBlock</code>s, implying that rblock1
-     * has at least one <code>BlockConnector</code>s that satisfies at
-     * least one of the <code>LinkRule</code>s.
-     * 
-     * Does not require close proximity.
-     * 
-     * @param workspace The workspace in use
-     * @param rblock1 one of the blocks to check
-     * @param otherBlocks the other blocks to check against
-     * @return a <code>BlockLink</code> object that gives the two closest matching <code>BlockConnector</code>s in these blocks,
-     * or null if no such matching exists.
-     */
-    public static BlockLink getWeakLink(Workspace workspace, RenderableBlock rblock1, Iterable<RenderableBlock> otherBlocks) {
-        Block block1 = workspace.getEnv().getBlock(rblock1.getBlockID());
-        BlockConnector closestSocket1 = null;
-        BlockConnector closestSocket2 = null;
-        Block closestBlock2 = null;
-        double closestDistance = Double.POSITIVE_INFINITY;
-        double currentDistance;
-
-        for (RenderableBlock rblock2 : otherBlocks) {
-            BlockConnector currentPlug = getPlugEquivalent(block1);
-            Block block2 = workspace.getEnv().getBlock(rblock2.getBlockID());
-            if (block1.equals(block2) || !rblock1.isVisible() || !rblock2.isVisible()) {
-                continue;
-            }
-
-            Point2D currentPlugPoint = null;
-            Point2D currentSocketPoint = null;
-            if (currentPlug != null) {
-                currentPlugPoint = getAbsoluteSocketPoint(rblock1, currentPlug);
-                for (BlockConnector currentSocket : getSocketEquivalents(block2)) {
-                    currentSocketPoint = getAbsoluteSocketPoint(rblock2, currentSocket);
-                    currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentPlug, currentSocket)) {
-                        closestBlock2 = block2;
-                        closestSocket1 = currentPlug;
-                        closestSocket2 = currentSocket;
-                        closestDistance = currentDistance;
-                    }
-                }
-            }
-
-            currentPlug = getPlugEquivalent(block2);
-            if (currentPlug != null) {
-                currentPlugPoint = getAbsoluteSocketPoint(rblock2, currentPlug);
-                for (BlockConnector currentSocket : getSocketEquivalents(block1)) {
-                    currentSocketPoint = getAbsoluteSocketPoint(rblock1, currentSocket);
-                    currentDistance = currentPlugPoint.distance(currentSocketPoint);
-                    if ((currentDistance < closestDistance) && checkRules(workspace, block1, block2, currentSocket, currentPlug)) {
-                        closestBlock2 = block2;
-                        closestSocket1 = currentSocket;
-                        closestSocket2 = currentPlug;
-                        closestDistance = currentDistance;
-                    }
-                }
-            }
-        }
-
-        if (closestSocket1 == null) {
-            return null;
-        }
-
-        return BlockLink.getBlockLink(workspace, block1, closestBlock2, closestSocket1, closestSocket2);
-    }
-
-    /**
      * Checks if a potential link satisfies ANY of the rules loaded into the link checker
      * @param block1 one Block in the potential link
      * @param block2 the other Block
@@ -262,9 +192,4 @@ public class BlockLinkChecker {
         return Collections.unmodifiableList(socketEquivalents);
     }
 
-    /**
-     * Prints to the console all the rules this LinkChecker currently supports.
-     */
-    public static void printRules() {
-    }
 }

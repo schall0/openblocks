@@ -472,7 +472,7 @@ public class Block implements ISupportMemento {
      * Informs this Block that a block with id connectedBlockID has connected to the specified
      * connectedSocket
      */
-    public void blockConnected(BlockConnector connectedSocket, Long connectedBlockID) {
+    public void blockConnected(BlockConnector connectedSocket) {
         if (connectedSocket.isExpandable()) {
             if (connectedSocket.getExpandGroup().length() > 0) {
                 // Part of an expand group
@@ -653,39 +653,6 @@ public class Block implements ISupportMemento {
      */
     public void setPlug(String kind, PositionType positionType, String label, boolean isLabelEditable, Long blockID) {
         plug = new BlockConnector(workspace, kind, positionType, label, isLabelEditable, false, blockID);
-    }
-
-    /**
-     * Sets the plug kind of this
-     * @param kind the desired plug kind
-     */
-    public void setPlugKind(String kind) {
-        assert plug != null : "Plug is null!  Can not set this information.";
-        if (hasPlug()) {
-            plug.setKind(kind);
-        }
-    }
-
-    /**
-     * Sets the plug label of this
-     * @param label the desired plug label
-     */
-    public void setPlugLabel(String label) {
-        assert plug != null : "Plug is null!  Can not set this information.";
-        if (hasPlug()) {
-            plug.setLabel(label);
-        }
-    }
-
-    /**
-     * Sets the block attached to this plug
-     * @param id the block id to attach to this plug
-     */
-    public void setPlugBlockID(Long id) {
-        assert plug != null : "Plug is null!  Can not set this information.";
-        if (hasPlug()) {
-            plug.setConnectorBlockID(id);
-        }
     }
 
     /**
@@ -968,15 +935,6 @@ public class Block implements ISupportMemento {
     }
 
     /**
-     * Returns true if this block is a variable block; false otherwise
-     * FORWARDED FROM BLOCK GENUS
-     * @return true if this block is a variable block; false otherwise
-     */
-    public boolean isVariableDeclBlock() {
-        return getGenus().isVariableDeclBlock();
-    }
-
-    /**
      * Returns true if this block is a procedure declaration block; false otherwise
      * FORWARDED FROM BLOCK GENUS
      * @return true if this block is a procedure declaration block; false otherwise
@@ -995,24 +953,6 @@ public class Block implements ISupportMemento {
     }
 
     /**
-     * Returns true if this block is a procedure parameter block; false otherwise.
-     * FORWARDED FROM BLOCK GENUS
-     */
-    public boolean isProcedureParamBlock() {
-        return getGenus().isProcedureParamBlock();
-    }
-
-    /**
-     * Returns true if this block is a list or a list operator (determined by whether it has at
-     * least one list connector of any type); false otherwise.
-     * @return is determined by whether it has at least one list connector of any type.
-     * FORWARDED FROM BLOCK GENUS
-     */
-    public boolean isListRelated() {
-        return getGenus().isListRelated();
-    }
-
-    /**
      * Returns true if this genus has a "before" connector; false otherwise.
      * FORWARDED FROM BLOCK GENUS
      * @return true is this genus has a "before" connector; false otherwise.
@@ -1028,35 +968,6 @@ public class Block implements ISupportMemento {
      */
     public boolean hasAfterConnector() {
         return after != null;
-    }
-
-    /**
-     * Returns the initial before connector of this
-     * FORWARDED FROM BLOCK GENUS
-     * @return the initial before connector of this
-     */
-    public BlockConnector getInitBefore() {
-        return getGenus().getInitBefore();
-    }
-
-    /**
-     * Returns the initial after connector of this
-     * FORWARDED FROM BLOCK GENUS
-     * @return the initial after connector of this
-     */
-    public BlockConnector getInitAfter() {
-        return getGenus().getInitAfter();
-    }
-
-    /**
-     * Returns true if the value of this genus is contained within the label of this; false
-     * otherwise
-     * FORWARDED FROM BLOCK GENUS
-     * @return true if the value of this genus is contained within the label of this; false
-     * otherwise
-     */
-    public boolean isLabelValue() {
-        return getGenus().isLabelValue();
     }
 
     /**
@@ -1093,15 +1004,6 @@ public class Block implements ISupportMemento {
      */
     public boolean isInfix() {
         return getGenus().isInfix();
-    }
-
-    /**
-     * Returns true if this genus has expandable sockets; false otherwise
-     * FORWARDED FROM BLOCK GENUS
-     * @return true if this genus has expandable sockets; false otherwise
-     */
-    public boolean areSocketsExpandable() {
-        return getGenus().areSocketsExpandable();
     }
 
     /**
@@ -1196,24 +1098,6 @@ public class Block implements ISupportMemento {
             return prop;
         }
         return getGenus().getProperty(property);
-    }
-
-    /**
-     * Returns the initial set of sockets of this
-     * FORWARDED FROM BLOCK GENUS
-     * @return the initial set of sockets of this
-     */
-    public Iterable<BlockConnector> getInitSockets() {
-        return getGenus().getInitSockets();
-    }
-
-    /**
-     * Returns the initial plug connector of this
-     * FORWARDED FROM BLOCK GENUS
-     * @return the initial plug connector of this
-     */
-    public BlockConnector getInitPlug() {
-        return getGenus().getInitPlug();
     }
 
     /**

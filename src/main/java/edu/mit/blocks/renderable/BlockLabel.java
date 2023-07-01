@@ -40,12 +40,10 @@ public class BlockLabel implements MouseListener, MouseMotionListener, KeyListen
 
         NAME_LABEL, PAGE_LABEL, PORT_LABEL, DATA_LABEL
     }
-    public final static Font blockFontSmall_Bold = new Font("Arial", Font.BOLD, 7);
+
     public final static Font blockFontMedium_Bold = new Font("Arial", Font.BOLD, 10);
     public final static Font blockFontLarge_Bold = new Font("Arial", Font.BOLD, 12);
-    public final static Font blockFontSmall_Plain = new Font("Arial", Font.PLAIN, 7);
-    public final static Font blockFontMedium_Plain = new Font("Arial", Font.PLAIN, 10);
-    public final static Font blockFontLarge_Plain = new Font("Arial", Font.PLAIN, 12);
+
     private LabelWidget widget;
     /** These keys inputs are delegated back to renderable block */
     private final char[] validOperators = {'-', '+', '/', '*', '=', '<', '>', 'x', 'X'};
@@ -152,24 +150,8 @@ public class BlockLabel implements MouseListener, MouseMotionListener, KeyListen
         return (int) (widget.getHeight() / zoom);
     }
 
-    public int getPixelWidth() {
-        return widget.getWidth();
-    }
-
-    public int getPixelHeight() {
-        return widget.getHeight();
-    }
-
-    public Point getPixelLocation() {
-        return widget.getLocation();
-    }
-
     public void setEditable(boolean isEditable) {
         widget.setEditable(isEditable);
-    }
-
-    public boolean editingText() {
-        return widget.editingText();
     }
 
     public void highlightText() {
@@ -221,10 +203,6 @@ public class BlockLabel implements MouseListener, MouseMotionListener, KeyListen
     }
 
     protected int descale(int x) {
-        return (int) (x / zoom);
-    }
-
-    protected int descale(double x) {
         return (int) (x / zoom);
     }
 

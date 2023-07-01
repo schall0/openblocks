@@ -103,14 +103,6 @@ class BlockControlLabel extends JLabel implements MouseListener {
     }
 
     /**
-     * Sets the block ID for this BlockControlLabel
-     * @param blockID
-     */
-    void setBlockID(long blockID) {
-        this.blockID = blockID;
-    }
-
-    /**
      * Returns the block ID for this BlockControlLabel
      * @return
      */

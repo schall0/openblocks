@@ -21,8 +21,6 @@ public class BlockShape {
 
     /** Draws the individual connectors.  Shouldn't need more than one of these */
     protected static BlockConnectorShape BCS = new BlockConnectorShape();
-    /** Tools to draw block shape.  Shouldn't need more than one of these */
-    protected static BlockShapeUtil BSU = new BlockShapeUtil();
     /** The RenderableBlock associated to this BlockShape */
     protected RenderableBlock rb;
     /** The blockID associated to this BlockShape */
@@ -35,8 +33,6 @@ public class BlockShape {
     public static final float COMMAND_PORT_OFFSET = 15f;
     /** radius of rounded corners */
     public static final float CORNER_RADIUS = 3.0f;
-    /** variable declaration spacer */
-    public static final float VARIABLE_DECLARATION_SPACER = 10f;
     /** spacer for bottom sockets to block sides and other bottom sockets */
     public static final float BOTTOM_SOCKET_SIDE_SPACER = 10f;
     /** spacer for in between bottom sockets */
@@ -551,13 +547,6 @@ public class BlockShape {
     ////////////////////////////
     // GENERAL PATH ACCESSORS //
     ////////////////////////////
-    /**
-     * Returns the GeneralPath of the bottom side of this block shape.
-     * @return the GeneralPath of the bottom side of this block shape.
-     */
-    protected GeneralPath getBottomSide() {
-        return gpBottomClockwise;
-    }
 
     /**
      * Returns the GeneralPath of the left side of this block shape.
@@ -639,10 +628,4 @@ public class BlockShape {
     /////////////////////////////////
     // CUSTOM BLOCK SHAPE METHODS ///
     /////////////////////////////////
-    /**
-     * Add a new set of custom shapes
-     */
-    public static void addCustomShapes(CustomBlockShapeSet cbs) {
-        customBlockShapeSets.add(cbs);
-    }
 }

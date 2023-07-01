@@ -66,11 +66,6 @@ public class BlockImageIcon extends JLabel {
         return blockImageIcon;
     }
 
-    public void setImageIcon(ImageIcon icon) {
-        blockImageIcon = icon;
-        super.setIcon(icon);
-    }
-
     public ImageLocation getImageLocation() {
         return location;
     }

@@ -31,7 +31,7 @@ public class CBarGraph extends JLabel {
     private double upperBound = -1e9;
     private double lowerBound = 0;
 
-    public CBarGraph(String title, int seriesNum, Color background) {
+    public CBarGraph(String title, Color background) {
         super("", SwingConstants.CENTER);
 
         this.chartData = new BarData(title);
@@ -50,24 +50,7 @@ public class CBarGraph extends JLabel {
         return new Insets(15, 10, 15, 10);
     }
 
-    public void clearChart() {
-        if (!lock) {
-            this.chart = chartData.makeChart();
-            this.chart.setBackgroundPaint(this.background);
-            this.chart.setBorderPaint(null);
-            if (output != null) {
-                JFreeChart newChart = new JFreeChart(chart.getPlot());
-                newChart.getLegend().setPosition(RectangleEdge.TOP);
-                newChart.getLegend().setPadding(5, 5, 5, 5);
-                newChart.setBackgroundPaint(background);
-                output.setChart(newChart);
-                output.invalidate();
-                output.repaint();
-            }
-        }
-    }
-
-    public void updateDomain(String title, int seriesNum, Color background) {
+    public void updateDomain(Color background) {
         if (!lock) {
             this.chart = chartData.makeChart();
             this.background = background == null ? DEFAULT_BACKGROUND : background;
@@ -105,10 +88,8 @@ public class CBarGraph extends JLabel {
 
     /**
      * Updates the series name at the specified index
-     * @param seriesName the new seriesName to set at the specified index
-     * @param index the desired index to set the new seriesName to
      */
-    public void updateSeriesNamesAt(String seriesName, int index) {
+    public void updateSeriesNamesAt() {
         //does nothing
         //note from ria: could not find a way to update the series name of a bar graph
         //in jfreechart

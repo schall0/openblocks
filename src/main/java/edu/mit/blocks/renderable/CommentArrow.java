@@ -85,14 +85,6 @@ public class CommentArrow {
     }
 
     /**
-     * Returns whether this  animation is active
-     * @return the active
-     */
-    boolean isActive() {
-        return active;
-    }
-
-    /**
      * Sets the visibility of the arrow component
      *
      */
