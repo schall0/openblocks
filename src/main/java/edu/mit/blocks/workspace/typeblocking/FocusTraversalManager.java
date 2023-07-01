@@ -758,31 +758,28 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * 			is instance of BlockCanvas and RenderableBlock
      */
     public void workspaceEventOccurred(WorkspaceEvent event) {
-        switch (event.getEventType()) {
-            case WorkspaceEvent.BLOCK_ADDED:
-                //System.out.println("FocusManager: Block_Added Event at of "+event.getSourceBlockID()+" on "+event.getSourceWidget());
-                //only add focus manager as listener to blocks added to pages
-                if (!(event.getSourceWidget() instanceof Page)) {
-                    break;
-                }
-                RenderableBlock rb = workspace.getEnv().getRenderableBlock(event.getSourceBlockID());
-                if (rb == null) {
-                    break;
-                }
+        if (event.getEventType() == WorkspaceEvent.BLOCK_ADDED) {//System.out.println("FocusManager: Block_Added Event at of "+event.getSourceBlockID()+" on "+event.getSourceWidget());
+            //only add focus manager as listener to blocks added to pages
+            if (!(event.getSourceWidget() instanceof Page)) {
+                return;
+            }
+            RenderableBlock rb = workspace.getEnv().getRenderableBlock(event.getSourceBlockID());
+            if (rb == null) {
+                return;
+            }
 
-                //only add once
-                for (MouseListener l : rb.getMouseListeners()) {
-                    if (l.equals(this)) {
-                        return;
-                        //TODO: this shouldn't return, it should break
-                        //but you can't double break in java
-                    }
+            //only add once
+            for (MouseListener l : rb.getMouseListeners()) {
+                if (l.equals(this)) {
+                    return;
+                    //TODO: this shouldn't return, it should break
+                    //but you can't double break in java
                 }
-                rb.addMouseListener(this);
-                rb.addKeyListener(this);
-                setFocus(event.getSourceBlockID());
-                rb.grabFocus();
-                break;
+            }
+            rb.addMouseListener(this);
+            rb.addKeyListener(this);
+            setFocus(event.getSourceBlockID());
+            rb.grabFocus();
         }
     }
 

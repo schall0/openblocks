@@ -618,7 +618,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
     /** @overrides WorkspaceWidget.blockDragged() */
     @Override
     public void blockDragged(RenderableBlock block) {
-        if (mouseIsInPage == false) {
+        if (!mouseIsInPage) {
             mouseIsInPage = true;
             this.pageJComponent.repaint();
         }
@@ -627,7 +627,7 @@ public class Page implements WorkspaceWidget, SearchableContainer, ISupportMemen
     /** @overrides WorkspaceWidget.blockEntered() */
     @Override
     public void blockEntered(RenderableBlock block) {
-        if (mouseIsInPage == false) {
+        if (!mouseIsInPage) {
             mouseIsInPage = true;
             this.pageJComponent.repaint();
         }

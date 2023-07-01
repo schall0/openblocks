@@ -158,12 +158,12 @@ public class CQueryField extends JPanel implements MouseListener, MouseMotionLis
     @Override
     public void mouseMoved(MouseEvent e) {
         if (e.getX() > this.getWidth() - this.getHeight() * 5 / 6) {
-            if (mouseover == false) {
+            if (!mouseover) {
                 mouseover = true;
                 this.repaint();
             }
         } else {
-            if (mouseover == true) {
+            if (mouseover) {
                 mouseover = false;
                 this.repaint();
             }

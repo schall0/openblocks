@@ -17,7 +17,6 @@ import edu.mit.blocks.renderable.BlockUtilities;
 import edu.mit.blocks.renderable.RenderableBlock;
 import edu.mit.blocks.renderable.TextualFactoryBlock;
 import edu.mit.blocks.workspace.BlockCanvas;
-import edu.mit.blocks.workspace.PageChangeEventManager;
 import edu.mit.blocks.workspace.Workspace;
 import edu.mit.blocks.workspace.WorkspaceEvent;
 import edu.mit.blocks.workspace.WorkspaceWidget;
@@ -104,33 +103,40 @@ public class TypeBlockManager {
     private static boolean invalidBlockID(Long blockID) {
         if (blockID == null) {
             return true;
-        } else if (blockID.equals(Block.NULL)) {
-            return true;
-        } else {
-            return false;
         }
+        if (blockID.equals(Block.NULL)) {
+            return true;
+        }
+        return false;
+
     }
 
     private boolean isNullBlockInstance(Long blockID) {
         if (blockID == null) {
             return true;
-        } else if (blockID.equals(Block.NULL)) {
-            return true;
-        } else if (workspace.getEnv().getBlock(blockID) == null) {
-            return true;
-        } else if (workspace.getEnv().getBlock(blockID).getBlockID() == null) {
-            return true;
-        } else if (workspace.getEnv().getBlock(blockID).getBlockID().equals(Block.NULL)) {
-            return true;
-        } else if (workspace.getEnv().getRenderableBlock(blockID) == null) {
-            return true;
-        } else if (workspace.getEnv().getRenderableBlock(blockID).getBlockID() == null) {
-            return true;
-        } else if (workspace.getEnv().getRenderableBlock(blockID).getBlockID().equals(Block.NULL)) {
-            return true;
-        } else {
-            return false;
         }
+        if (blockID.equals(Block.NULL)) {
+            return true;
+        }
+        if (workspace.getEnv().getBlock(blockID) == null) {
+            return true;
+        }
+        if (workspace.getEnv().getBlock(blockID).getBlockID() == null) {
+            return true;
+        }
+        if (workspace.getEnv().getBlock(blockID).getBlockID().equals(Block.NULL)) {
+            return true;
+        }
+        if (workspace.getEnv().getRenderableBlock(blockID) == null) {
+            return true;
+        }
+        if (workspace.getEnv().getRenderableBlock(blockID).getBlockID() == null) {
+            return true;
+        }
+        if (workspace.getEnv().getRenderableBlock(blockID).getBlockID().equals(Block.NULL)) {
+            return true;
+        }
+        return false;
     }
 
     ///////////////////////
