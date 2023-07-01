@@ -8,7 +8,7 @@ The principal objective of the fork is to make the code more amenable to inclusi
 
 Getting Started:
 ------
-Main class is edu/mit/blocks/controller/WorkspaceController.java
+Main class is edu.mit.blocks.controller.WorkspaceController
 
 To do:
 ------
