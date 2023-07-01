@@ -28,7 +28,7 @@ import edu.mit.blocks.workspace.Workspace;
 
 /**
  * See documentation for Explorer.
- * 
+ * <p>
  * A Glass Explorer explores the canvas by normally
  * displaying only the buttons.  When the user selects a
  * particular button, the corresponding canvas is rolled out

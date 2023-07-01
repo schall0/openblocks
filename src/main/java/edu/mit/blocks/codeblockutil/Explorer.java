@@ -6,22 +6,22 @@ import javax.swing.JComponent;
 
 /**
  * An Explorer explores canvases.
- * 
+ * <p>
  * The philosophy above simplifies the relationship between the
  * various low-level and high-level components used to display
  * mulitple canvases in a limited space.
- * 
+ * <p>
  * An explorer commands a set of Canvases and tells them where
  * to go, when to be visbilty, when to not be visible, and how
  * they should "hide" themselves when not being used.
- * 
+ * <p>
  * There are many ways to achieve this UI.  One way is to
  * exmploy the "stack" loook and feel, where each canvas is
  * stacked on top of each other.  Another more common
  * solution is the tabbed look and feel, where each canvas
  * is a tab.  Other possibilities consists of internal windows,
  * hiding toolpane, etc.
- * 
+ * <p>
  * Remember, an Explorer is simply a controller of
  * canvases.  Nothing more.  ANY subtype of Explorer
  * should hold this aspect as true.  Never should an Explorer

@@ -28,9 +28,9 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
 /**
  * A GlassCard is used by glass explorers explorers as a
  * mediator to their canvases.
- * 
+ * <p>
  * It wraps a button, a scrollpane, and a invoker.
- * 
+ * <p>
  * The button uses information about the current color
  * and highlight of the canvas to dipict itself.  The
  * scrollpane takes the canvas and puts it inside a scroll

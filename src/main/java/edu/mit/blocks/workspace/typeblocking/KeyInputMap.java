@@ -12,7 +12,7 @@ import edu.mit.blocks.workspace.typeblocking.TypeBlockManager.Direction;
  * The KeyInputMap manages the processing of particular keys
  * and delegates the task of performing an action to the
  * TypeBlockManager.
- *
+ * <p>
  * In a sense, the KeyInputMap assists in mapping a character to
  * an Action.
  */
@@ -69,10 +69,10 @@ public class KeyInputMap {
      * 		3.  It should parse the key event and drop down the
      * 			appropriate block as well as make the needed
      * 			connections.
-     *
+     * <p>
      * Both Key_Pressed and Kep_Types events
      * must pass through here
-     *
+     * <p>
      * Both Key_Pressed and Kep_Types events
      * must pass through here
      * @requires key!=null

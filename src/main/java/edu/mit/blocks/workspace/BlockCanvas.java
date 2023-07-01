@@ -36,11 +36,11 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * particular new page must be added to both the data 
  * structure holding the set of pages and the scrollable 
  * panel that renders the page.
- * 
+ * <p>
  * A BlockCanvas is also a PageChangeListener.  When any 
  * pages are changed, the Blockcanvas must update itself 
  * appropriately to reflect this change.
- * 
+ * <p>
  * As of the current implementation, the BlockCanvas must 
  * have at least one Page when it becomes visible (that is,
  * when its viewable JComponent becomes visible).

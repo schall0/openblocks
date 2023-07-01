@@ -26,7 +26,7 @@ import edu.mit.blocks.codeblockutil.GraphicsManager;
  * In general, any existing JComponent can be made to be draggable simple by
  * creating an instance of JComponentDragHandler (passing a reference to itself)
  * and registering the JComponentDragHandler as the listener for all mouse events.
- *
+ * <p>
  * Classes that need similar, but not identical, behavior, or that need to add
  * functionality to the mouse methods here can create an inner class that extends
  * this class.  In this way the inner class can maintain the functionality of

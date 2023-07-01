@@ -23,7 +23,7 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  * focus and the corresponding focus point on that block.  
  * If the focus is not on the block, then it must be set 
  * to some point of the block canvas.
- * 
+ * <p>
  * The second primary function of the FocusTraversalManager 
  * is to redirect the focus to the next appropriate block 
  * in a particular stack.  One could "traverse" the stack 
@@ -32,7 +32,7 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  * 		2. the block before
  * 		3. the next block
  * 		4. the previous block
- * 
+ * <p>
  * The exact definition of what "next", "previous", 
  * "after", and "before" is described in details in 
  * their corresponding method summary.
@@ -42,23 +42,23 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  * three observer (getter) methods.  Clients may also 
  * manualy mutate the focus through three modifier (setter) 
  * methods.
- * 
+ * <p>
  * However, BOTH the value returned in the observer 
  * methods and the value passed in the modifier methods 
  * MUST maintain particular invariants described below.
- * 
+ * <p>
  * These invariants must hold at all time and check reps 
  * should be imposed to ensure that any changes to the 
  * system still holds these crucial invariants.  Clients 
  * of this module may assume that the invariants mentioned 
  * below will always hold.
- * 
+ * <p>
  * INVARIANT I.
  * 	If the canvas has focus, then the block does not. Thus
  * 		1. focusBlock == Block.null
  * 		2. canvasFocusPoint != null
  * 		3. blockFocusPoint == null
- * 
+ * <p>
  * INVARIANT II.
  * 	If the block has focus, then the canvas does not. Thus
  * 		1. focusBlock != Block.null
@@ -414,7 +414,7 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * If next control block does not exist, then give
      * focus to current focusblock.  Otherwise, give
      * focus to block canvas.
-     *
+     * <p>
      * Expects no wrapping to TopOfStack block, do not use this method for infix blocks
      *
      * @requires focusblock.isMinimized() == false
@@ -455,7 +455,7 @@ public class FocusTraversalManager implements MouseListener, KeyListener, Worksp
      * If no previous control block exists, then give
      * focus to current focusblock.  Otherwise, give
      * focus to block canvas.
-     *
+     * <p>
      * Expects no wrapping to bottom block, do not use this method for infix blocks
      *
      * @requires focusblock.isMinimized() == false

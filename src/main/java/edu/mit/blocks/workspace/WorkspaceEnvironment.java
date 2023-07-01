@@ -84,7 +84,7 @@ public class WorkspaceEnvironment extends PageChangeEventManager {
 
     /** STUB HASH MAPS
      * key: parentName + parentGenus
-     *
+     * <p>
      * Key includes both parentName and parentGenus because the names of two parents
      * may be the same if they are of different genii
      * blockids of parents are not used as a reference because parents and stubs are

@@ -15,7 +15,7 @@ import edu.mit.blocks.codeblockutil.CSlider;
 /**
  * A ZoomSlider manages the zooming of the block canvas
  * and all its children.
- * 
+ * <p>
  * It interfaces with the user through a JSlider but upon
  * observing a change, it invokes the block canvas through
  * the Workspace to reset the zoom factor.

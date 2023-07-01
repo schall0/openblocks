@@ -12,7 +12,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * A CButton is a swing-compatible widget that allows clients
  * to display an oval button with an optional text.
- * 
+ * <p>
  * To add a particular action to this widget, users should invoke
  * this.addCButtonListener( new CButtonListener());
  */

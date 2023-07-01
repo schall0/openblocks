@@ -43,7 +43,7 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * and a set of blocks.  How it renders these abstract fields
  * depends on the state of the page, including: zoom level,
  * and minimumPixelWidth.
- *
+ * <p>
  * A Page exists as a WorkspaceWidget, a SearchableContainer,
  * ISupportMemento, an RBParent, a Zoomable object, and a JPanel.
  * As a WorkspaceWidget, it can add, remove, blocks and manage
@@ -51,13 +51,13 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * it can notify users that certain blocks have been queried.
  * As an ISupportMomento, it can undo the current values of
  * abstract fields.  As an RBParent, it can highlight blocks.
- *
+ * <p>
  * Since a Page is both a Zoomable object and JPanel, Pages
  * separate its abstract model and view by allowing clients
  * to mutate its abstract fields directly.  But clients must
  * remember to reform the pages in order to synchronize the
  * data between the model and view.
- *
+ * <p>
  * A page's abstract color is rendered the same no matter
  * what state the page is in.  A page's abstract name is
  * rendered thrice centered at every fourth of the page.
@@ -73,7 +73,7 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * the abstract width to be.  Finally the set of blocks are
  * rendered directly onto the page with the same transformation
  * as the ones imposed on the width and height of the page.
- *
+ * <p>
  * As an implementation detail, a page tries to maintain a
  * separation between its abstract states and its view.
  * Clients of Pages should use reform*() methods to validate
@@ -81,7 +81,7 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * of Pages are warned against accessing Page.getJComponent(),
  * as the method provides clients a way to unintentionally mutate
  * an implementation specific detail of Pages.
- *
+ * <p>
  * A Page implements ExplorerListener i.e. it listens for possible changes in
  * an explorer that affects the display of the page. When an explorer event
  * happens the page changes its display accordingly

@@ -325,12 +325,12 @@ public class WorkspaceController {
      * which is associated with the language definition file contained in the
      * specified langDefContents.  All the blocks contained in projectContents
      * must have an associted block genus defined in langDefContents.
-     *
+     * <p>
      * If the langDefContents have any workspace settings such as pages or
      * drawers and projectContents has workspace settings as well, the
      * workspace settings within the projectContents will override the
      * workspace settings in langDefContents.
-     *
+     * <p>
      * NOTE: The language definition contained in langDefContents does
      * not replace the default language definition file set by: setLangDefFilePath() or
      * setLangDefFile().

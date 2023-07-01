@@ -25,7 +25,7 @@ import javax.swing.JComponent;
  * This is done by various page listeners handled when 
  * the PageDivider informs the PageChangedEventListener 
  * to notify various PageChangeListeners.
- * 
+ * <p>
  * We observe the following use cases:
  * 	1) 	User mouses over PageDivider
  * 		PageDivider grows in width

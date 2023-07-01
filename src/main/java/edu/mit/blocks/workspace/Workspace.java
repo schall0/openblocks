@@ -858,7 +858,7 @@ public class Workspace extends JLayeredPane implements ISupportMemento, RBParent
      *   Block instances.)
      * Note: we want to get rid of all RendereableBlocks and their 
      * references.  
-     * 
+     * <p>
      * Want to get the Workspace ready to load another workspace 
      */
     public void reset() {

@@ -784,7 +784,7 @@ public class Block implements ISupportMemento {
      * default arguments attached.  Each index in the Long list corresponds to the index of the socket
      * the default argument is attached to.  If an element in this list is Block.NULL, then no default argument
      * exists for that socket or there already is a block attached at that socket.
-     *
+     * <p>
      * Default arguments are linked whenever a block is dragged to the workspace for the first time
      *
      * @return Returns a Long list of the newly created default argument block IDs; null if this block has none.

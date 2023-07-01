@@ -15,7 +15,7 @@ import java.awt.geom.GeneralPath;
  * allows clients to display a semi-transpanrent arrow
  * in any of the four traditional directions:
  * NORTH, SOUTH, EAST, WEST.
- * 
+ * <p>
  * Clients of the CArrowButton may subscribe mouse triggers
  * to particular actions by doing the following:
  * this.addCButtonListener(new CButtonListener());

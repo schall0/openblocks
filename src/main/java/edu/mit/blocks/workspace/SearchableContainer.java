@@ -15,7 +15,7 @@ public interface SearchableContainer {
     /**
      * Called by the search bar to update the Searchable of whether it currently belongs to
      * the search bar's results.  Guaranteed to be called on the Swing thread.
-     *
+     * <p>
      * It is the responsibility of this SearchableContainer to update any necessary state and repaint
      * any necessary components as a result of a call to this method.
      *

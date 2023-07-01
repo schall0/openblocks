@@ -8,11 +8,11 @@ import java.util.Set;
  * handling all page-changed events triggered by
  * Pages and notifying page-change listeners when
  * such an event is triggered.
- * 
+ * <p>
  * A page-change event is thrown by invoking the
  * manager through the static method
  * PageChangeEventManager.notifyListeners().
- * 
+ * <p>
  * An object can subscribe to page-change events
  * by delegating itself through the static method
  * PageChangeEventManager.addPageChangeListener(). 

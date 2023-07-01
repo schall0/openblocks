@@ -14,7 +14,7 @@ import edu.mit.blocks.codeblocks.rendering.BlockShapeUtil;
 /**
  * This class separates block shape from the RenderableBlock class.  BlockShape uses information
  * from RenderableBlock to determine shape and dimensions of the block being drawn.
- * 
+ * <p>
  * BlockShape does not know where it is in the world -- all coords are local.
  */
 public class BlockShape {

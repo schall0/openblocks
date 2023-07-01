@@ -20,7 +20,7 @@ public class BlockImageIcon extends JLabel {
     /**
      * ImageLocation specifies the relative location of this BlockImageIcon within the visible
      * Block instance of this BlockGenus.  
-     * 
+     * <p>
      * Note: there is only one BlockImageIcon per ImageLocation within a Block
      */
     public enum ImageLocation {

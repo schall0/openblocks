@@ -8,10 +8,10 @@ import edu.mit.blocks.workspace.WorkspaceEvent;
 
 /**
  * A class that stores information about a potential block connection.
- * 
+ * <p>
  * Each BlockLink instance stores the Block IDs of the "plug" and "socket"
  * and two block connectors, one from each, with a possible connection.  
- * 
+ * <p>
  * In block linking, a "plug" can be either a before or plug connector, 
  * while a "socket" can either be a after or socket connector.  Plugs can only 
  * connect to other socket connectors, while before connectors can connect to 

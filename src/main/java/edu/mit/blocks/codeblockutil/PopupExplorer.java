@@ -25,7 +25,7 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
 
 /**
  * See documentaton for Explorer.
- * 
+ * <p>
  * A PopupExplorer explores the canvas by normally
  * displaying only the canvas.  When the user mouses over
  * the left edge, the button pane is rolled out.

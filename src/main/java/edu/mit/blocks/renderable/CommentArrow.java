@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 
 /**
  * Draws an arrow (triangle to make the comment look like a speech bubble) between a comment and its source.
- * 
+ * <p>
  * 
  * @author joshua
  *

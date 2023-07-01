@@ -15,10 +15,10 @@ import edu.mit.blocks.workspace.WorkspaceListener;
  * <code>BlockLinkChecker</code> will report which sockets of the two <code>Block</code> objects can connect.
  * Interested <code>Block</code> objects may make a static call to canLink() to determine if it can link to another
  * <code>Block</code> object.
- * 
+ * <p>
  * <code>BlockLinkChecker</code> uses a list of <code>LinkRule</code>s to check the <code>Connector</code>s of each
  * <code>Block</code>.  Rules may be added, inserted, and removed from the checker.  
- * 
+ * <p>
  * There is only one instance of the <code>BlockLinkChecker</code>.
  */
 public class BlockLinkChecker {

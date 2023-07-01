@@ -11,7 +11,7 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * ContextMenu handles all the right-click menus within the Workspace.
  * TODO ria enable customization of what menu items appear, fire events depending
  * on what items are clicked (if we enabled the first feature)
- * 
+ * <p>
  * TODO ria still haven't enabled the right click menu for blocks
  */
 public class ContextMenu extends PopupMenu implements ActionListener {

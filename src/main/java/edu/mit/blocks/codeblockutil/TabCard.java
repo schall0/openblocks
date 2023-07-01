@@ -14,16 +14,16 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
 /**
  * A Tab Card is used by glass explorers explorers as a
  * mediator to their canvases.
- * 
+ * <p>
  * It wraps a button, a scrollpane, and a invoker.
- * 
+ * <p>
  * The button uses information about the current color
  * and highlight of the canvas to dipict itself.  The
  * scrollpane takes the canvas and puts it inside a scroll
  * pane so that users can navigate a very large canvas
  * in small space.  The invoker respnds to button presses
  * and invokes the right method in the explorer.
- * 
+ * <p>
  * A tabbed pane does more than just store the scroll, button,
  * and canvas, it also holds information about the menuitem
  * for the tab oane's drop down menu.

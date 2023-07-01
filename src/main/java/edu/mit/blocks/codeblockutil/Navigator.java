@@ -24,7 +24,7 @@ import edu.mit.blocks.workspace.Workspace;
  * A navigator navigates between different Explorers.
  * Though the UI holds a common theme, each explorer
  * may represent a unique subset of the whole.
- * 
+ * <p>
  * Basically, say we have a bunch of canvases (100).
  * Say that we group the canvases into 5 explorers
  * based on some quality and have each individual explorer
@@ -35,17 +35,17 @@ import edu.mit.blocks.workspace.Workspace;
  * explorers hidden.  Or we have shrink them.  This
  * particular implementation chooses to slide them to
  * the side.
- * 
+ * <p>
  * Now that you know why we need a navigator, let's talk
  * about what a Navigator is.  A Navigator lines up
  * a set of explorers along the x-axis.  It slides between
  * the explorers until it reaches the end.  That's it. Simple?
- * 
+ * <p>
  * Note however, that each explorer must be UNIQUE.  NO EXCEPTIONS!
  * That is, the name of a particular explorer may not be
  * shared by any other explorers.  This check rep. is made when 
  * adding new explorer.
- * 
+ * <p>
  * A Navigator unfortunately makes a once dangerous assumption: the name of
  * each explorer must remain the same forever.  If the name changes, then
  * the invariant described in the previous paragraph no longer holds.

@@ -14,7 +14,7 @@ import edu.mit.blocks.workspace.WorkspaceWidget;
  * Unlike its superclass RenderableBlock, FactoryRenderableBlock does not move or 
  * connect to any blocks.  Instead it has one function only, to produce new RenderableBlocks
  * and their associated Block instances.  It's block labels are also uneditable.
- * 
+ * <p>
  * When a mouse is pressed over a FactoryRenderableBlock, a new RenderableBlock instance is 
  * created on top of it to receive further mouse events and a new Block instance is created
  * in the background.  

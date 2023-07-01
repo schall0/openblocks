@@ -20,7 +20,7 @@ import javax.swing.Timer;
 
 /**
  * See documentation for Explorer.
- * 
+ * <p>
  * The TabbedExplorer functions much like any JTAbbedPane.
  * But its set of tabs are fitted into a wheel such that
  * the buttons scroll from left to right or right to left.

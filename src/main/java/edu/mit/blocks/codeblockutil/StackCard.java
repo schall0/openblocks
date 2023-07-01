@@ -26,7 +26,7 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
 /**
  * A StackCard is used by explorers to interface between
  * a CSwing Canvas and a CSwing explorer.
- * 
+ * <p>
  * An explorer explores Canvases.  This is the foundation
  * onto which the factory UI is built.  However, an
  * Explorer and a Canvas are two very different objects.
@@ -36,7 +36,7 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
  * low-level CSwing component that has no control over itself
  * (or at least it shouldn't).  An mediator is required
  * to link the two objects together.
- * 
+ * <p>
  * We solve this interface problem by employing a
  * mediator between an Explorer and a Canvas.  That's
  * where a StackCard comes in.  A StackCard (whose visibility should be

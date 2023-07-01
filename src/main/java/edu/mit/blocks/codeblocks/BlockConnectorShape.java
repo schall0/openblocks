@@ -19,10 +19,10 @@ import edu.mit.blocks.codeblocks.rendering.BlockShapeUtil;
  * BlockConnectionShape defines and draws the connectors between the blocks.
  * This includes the different (command/data) (sockets/plugs).
  * The standard sockets/plugs have varying styles.
- * 
+ * <p>
  * BlockConnectionShape doesn't care about the layout of the connectors on 
  * the blocks, that is the job of BlockShape.
- * 
+ * <p>
  * BlockConnectionShape is extendable to allow for 3rd party (command/data)
  * (sockets/plugs) shapes.
  * 
@@ -292,7 +292,7 @@ public class BlockConnectorShape {
      * Appends a specific data connection GeneralPath to a given GeneralPath.  startFromTop specifies 
      * that the end of the current generalPath is at the top of the data connection to be drawn.
      * convexRight means that the curve drawn points to the right.
-     * 
+     * <p>
      * The use of _lineTo and _curveTo are to reduce code clutter and to make it clear that
      * these are private methods and not the GeneralPath.lineTo or GeneralPath.curveTo.
      * _lineTo and _curveTo are relative to the starting point of the the data connection to be drawn.
@@ -515,7 +515,7 @@ public class BlockConnectorShape {
     /**
      * Draws a curve segment relative to the starting point of the current
      * connector.
-     *
+     * <p>
      * Adds a curved segment, defined by three new points, to the path by
      * drawing a Bézier curve that intersects both the current coordinates and
      * the coordinates (x3, y3), using the specified points (x1, y1) and (x2,

@@ -43,14 +43,14 @@ import edu.mit.blocks.workspace.WorkspaceEvent;
 /**
  * Comment stores and displays user-generated text that
  * can be edited by the user. Comments begin in 'editable' state.
- *
+ * <p>
  * Comments are associated with a parent source of type JComponent.
  * It should "tag" along with that component.  Note, however, that
  * this feature should be ensured by the parent source.  The
  * parent source can guarantee this by invoking the methods
  * setPosition, translatePosition, and setParent when
  * appropriate.
- *
+ * <p>
  * text : String //the text stored in this Comment and edited by the user
  */
 public class Comment extends JPanel {
@@ -96,7 +96,7 @@ public class Comment extends JPanel {
      * Constructs a Comment
      * with belonging to source, with text of initText, and initial zoom
      * The comment's borders will have the color borderColor.
-     *
+     * <p>
      * Note that initializing a comment only constructs
      * all of the necessary structures.  To graphically display a comment,
      * the implementor must then add the comment using the proper

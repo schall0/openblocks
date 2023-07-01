@@ -21,7 +21,7 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
 
 /**
  * See documentation for Explorer.
- * 
+ * <p>
  * A MagicExplorer explores the canvas by normally
  * displaying only the buttons.  When the user selects a
  * particular button, the corresponding canvas is rolled out

@@ -52,7 +52,7 @@ public abstract class CScrollPane extends JLayeredPane implements MouseWheelList
      * will not validate if one of the ancestors does not have a peer,
      * or there is no validate root ancestor, or one of the ancestors
      * is not a Window or Applet.
-     *
+     * <p>
      * Note that this method will not scroll outside of the valid viewport;
      * for example, if contentRect is larger than the viewport, scrolling
      * will be confined to the viewport's bounds.

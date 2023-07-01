@@ -21,7 +21,7 @@ import java.awt.image.Kernel;
  * A CIconButton is a swing-compatible widget that allows clients
  * to display a circular button with an optional icon.  Clients
  * may choose from the the possible set of of icons: play, pause, step.
- * 
+ * <p>
  * To add a particular action to this widget, users should invoke
  * this.addMouseListener( new CButtonListener());
  */

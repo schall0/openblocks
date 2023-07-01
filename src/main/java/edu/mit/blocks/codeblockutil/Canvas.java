@@ -8,14 +8,14 @@ import javax.swing.JComponent;
  * A Canvas is a low-level, mutable, CSwing component.
  * It is the UI component onto which other UI components
  * are added.
- * 
+ * <p>
  * An explorer, for example, may have a set of canvases that it
  * controls and displays.
- * 
+ * <p>
  * A Navigator may take a set of canvases and control them
  * in some complex way that mimicks real life experiences
  * (such as sliding, fading, flying).
- * 
+ * <p>
  * A canvas should be the only part of a high-level CSwing
  * object that users may manipulate.
  * @author An Ho

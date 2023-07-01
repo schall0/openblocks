@@ -22,7 +22,7 @@ import edu.mit.blocks.workspace.WorkspaceEvent;
  * the value of its "parent" block.  References may also get the value for a 
  * particular agent.  Finally, for a procedure block, its reference is a call
  * block, which executes the procedure.  
- * 
+ * <p>
  * The parent instance for a set of stubs is not permanent.  The parent intance
  * may change if the original parent it removed and then a new one with the 
  * same parent name is added to the block canvas. BlockStub manages the mapping 

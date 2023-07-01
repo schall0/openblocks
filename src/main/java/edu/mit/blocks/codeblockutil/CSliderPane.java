@@ -25,22 +25,22 @@ import javax.swing.SwingConstants;
  * The CSliderPane is a swing-compatible widget that
  * allows users to interface with a slider through
  * the slider itself and three text fields.
- * 
+ * <p>
  * The widget itself mains the bounded range model of ONE particular
  * abstract data structure, to be refered to as the abstract model.
  * This model is displayed graphically through the slider and text
  * fields.
- * 
+ * <p>
  * The model itself has a maximum, a minimum, and a value (to be
  * consistant with all swing components that wrap a bounded range model).
- * 
+ * <p>
  * The GUI representation of the abstract model has three text fields
  * that correspond to the value, left side, and right side of the slider.
  * The text field (left or right) with the lowest numerical value maps to the
  * abstract minimum of the abstract bounded range model.  The text field
  * (left or right) with the highest numerical value maps to the abstract
  * maximum.
- * 
+ * <p>
  * As with most swing lightweight components, the CSliderPane is itself
  * a controller that manages the display and interface between the
  * abstract model and UI (view).  The CSliderPane's controller is
@@ -255,7 +255,7 @@ public class CSliderPane extends JPanel implements ComponentListener {
      * When the abstract value is changed by the user, the system
      * backend must be notified of this change by throwing a ChangeEvent
      * with property name set to CSliderPane.VALUE_CHANGED.
-     *
+     * <p>
      * This method is called from changes in the labels of the slider pane
      */
     private void notifyValueChanged() {

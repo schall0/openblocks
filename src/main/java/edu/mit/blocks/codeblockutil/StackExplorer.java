@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 /**
  * See documentation for Explorer.
- * 
+ * <p>
  * A StackExplorer is an Explorer that stacks
  * its canvases from top down.  It controls them by moving
  * them up and down depending on what canvas is in view.

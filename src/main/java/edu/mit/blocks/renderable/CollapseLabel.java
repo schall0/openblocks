@@ -11,7 +11,7 @@ import edu.mit.blocks.workspace.Workspace;
  * CollapseLabel is a label that can be added to a renderable block that
  * will cause all blocks after this block to be hidden from view when
  * the isCollapsed parameter is true.
- *
+ * <p>
  *
  */
 class CollapseLabel extends BlockControlLabel {

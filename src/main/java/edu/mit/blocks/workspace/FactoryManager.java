@@ -31,27 +31,27 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * It has three main functions:  to control and display all factories
  * in one simple UI design, to manage the additions of new drawers,
  * and to add blocks to throse drawers appropriately.
- * 
+ * <p>
  * The FactoryManager manages two factories: the static factory
  * and dynamic factory.  Each factory has a set of drawers.  NO TWO
  * DRAWERS WITHIN ANY FACTORY MAY SHARE the same name.
- * 
+ * <p>
  * ********************FACTORY STRUCTURE***********************
- * 
+ * <p>
  * Let's take a look into the stucture of a factory.  Factory is
  * a pallete that sits on the far left side of the workspace.
  * It has a bunch of drawers that slides up and down.  Each
  * drawer contains a bunch of related blocks that can be dragged
  * out.
- * 
+ * <p>
  * The FactoryManager has two types of drawers: static and dynamic.
  * To add, remove, rename, drawers of either type, users should
  * invoke the name that specifies a particular drawer. Users
  * may also add blocks to the drawers or retrieve the set of blocks
  * that each drawer holds.
- * 
+ * <p>
  * *************IMPLEMENTATION DETAIL******************
- * 
+ * <p>
  * How the FactoryManager implements this UI is implementation
  * dependant.  Right now, it uses the Navigator-Explorer-Canvas deisgn.
  * Clients of the FactoryManager should know nothing about the
@@ -66,19 +66,19 @@ import edu.mit.blocks.renderable.RenderableBlock;
  * In the NEW design, we remove that burden from the developer and allow the
  * developer to access drawers by calling its name only.  This may
  * limit extensibility but keeps the system more robust.
- * 
+ * <p>
  * *********************A WORD ON DRAWER**********************
  * Please note that the word "drawer" as it is used by the
  * FactoryManager refers to the object that holds blocks.
  * A factory holds a bunch of drawers, which in turn holds
  * a bunch of blocks.
- * 
+ * <p>
  * Please do not mix this definition with the CSwing Drawer class.
  * A CSwing Drawer is a low-level component that is used
  * in a CSwing Exlorer.  Here, when the documentation refers
  * to drawers, it is NOT refering to the CSwing Drawer.  Rather,
  * when we say "drawer", we are referign to that object that holds blocks.
- * 
+ * <p>
  * *****************NAMING OF DRAWERS*************************
  * Each factory may have only ONE drawer with a particular name.
  * Two different factories may NOT share a name.   If we have

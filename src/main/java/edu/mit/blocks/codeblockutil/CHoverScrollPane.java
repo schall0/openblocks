@@ -35,7 +35,7 @@ import edu.mit.blocks.codeblockutil.CScrollPane.ScrollPolicy;
  * change the viewing space (also known as the visible rectangle)
  * of the scroll pane when users attempts to scroll
  * with the mouse, wheel, or key board.
- * 
+ * <p>
  * This scroll pane is unique in that it hover INSIDE the viewing
  * space rather than exist outside the viewing space.  By default,
  * the track is transparent to help users see parts of the viewport
