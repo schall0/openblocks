@@ -1,7 +1,5 @@
 package edu.mit.blocks.demo;
 
-import edu.mit.blocks.controller.WorkspaceController;
-
 import javax.swing.*;
 import java.awt.*;
 
